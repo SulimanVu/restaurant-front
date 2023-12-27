@@ -1,6 +1,71 @@
 .footer_inner {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  font-size: 15px;
+  .kitchen {
+    width: 40%;
+    text-align: left;
+
+    .mb {
+      margin-bottom: 15px;
+    }
+  }
+  svg {
+    margin-right: 15px;
+  }
+  .about {
     display: flex;
-    .about {
+    justify-content: space-between;
+    text-align: left;
+
+    .title {
+      margin-bottom: 15px;
+    }
+    .address {
+      width: 35%;
+
+      .location {
         display: flex;
+        justify-content: space-between;
+      }
+      
+    }
+
+    .contacts {
+        width: 35%;
+
+        .contacts_text {
+          display: flex;
+          justify-content: flex-start;
+        }
+        .title {
+          margin-bottom: 15px;
+        }
+      }
+  }
+}
+
+.footer_border {
+    border: 1px solid #EBEDED;
+    margin-bottom: 15px;
+}
+
+.soc_icons {
+display: flex;
+justify-content: space-between;
+
+    .soc_icons_inner {
+        display: flex;
+        
+
+
+        svg {
+            margin-right: 20px;
+        }
+    }
+
+    .soc_title {
+        font-size: 10px;
     }
 }
