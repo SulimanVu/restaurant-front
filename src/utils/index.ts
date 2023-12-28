@@ -126,3 +126,7 @@ export const DataBase: DataBase = {
     ],
   },
 };
+
+export const BASE_URL = 'http://localhost:1337/api';
+export const USER_LOCALSTORAGE_KEY = 'ls-user';
+export const JWT_LOCALSTORAGE_KEY = 'ls-jwt';
