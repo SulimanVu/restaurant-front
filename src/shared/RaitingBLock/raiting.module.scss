@@ -1,0 +1,18 @@
+.raitingBLock {
+  width: 250px;
+  height: 100px;
+  border-radius: 40px;
+  overflow: hidden;
+  .opacityBlock {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.423);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    word-wrap: break-word;
+    color: #fff;
+    font-size: 25px;
+  }
+}
