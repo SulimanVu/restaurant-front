@@ -1,5 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./pages/main/Main";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import Profile from "./components/Profile/Profile";
+import Favorites from "./components/Favorites/Favorites";
+import BasketPage from "./pages/BasketPage/BasketPage";
+import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
 
 function App() {
   const routes = createBrowserRouter([
@@ -7,20 +12,42 @@ function App() {
       path: "/",
       element: <Main />,
     },
-    // {
-    //   path: "/authorization",
-    //   element: <Authorization />,
-    //   children: [
-    //     {
-    //       path: "signIn",
-    //       element: <SignIn />,
-    //     },
-    //     {
-    //       path: "signUp",
-    //       element: <SignUp />,
-    //     },
-    //   ],
-    // },
+    {
+      path: "/my_accaunt",
+      element: <ProfilePage />,
+      children: [
+        {
+          path: "personal_info",
+          element: <Profile />,
+        },
+        {
+          path: "favorites",
+          element: <Favorites />,
+        },
+        {
+          path: "basket",
+          element: <BasketPage />,
+        },
+      ],
+    },
+    {
+      path: "/admin",
+      element: <AdminProfilePage />,
+      children: [
+        {
+          path: "personal_info",
+          element: <Profile />,
+        },
+        {
+          path: "favorites",
+          element: <Favorites />,
+        },
+        {
+          path: "basket",
+          element: <BasketPage />,
+        },
+      ],
+    },
   ]);
 
   return <RouterProvider router={routes} />;

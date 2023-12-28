@@ -1,0 +1,27 @@
+.list {
+  margin-top: 40px;
+  list-style-type: none;
+  padding: 0;
+  li {
+    display: grid;
+    grid-template-columns: 45px auto;
+    align-items: center;
+    border-left: 4px solid transparent;
+    padding: 11px 0 11px 25px;
+    margin-bottom: 8px;
+    transition: 0.4s;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--secondary);
+      border-left: 4px solid var(--black-silver);
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+  .active {
+    background-color: var(--secondary);
+    border-left: 4px solid var(--black-silver);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
