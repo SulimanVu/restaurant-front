@@ -1,11 +1,16 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./pages/main/Main";
+import Menu from "./components/Menu/Menu";
 
 function App() {
   const routes = createBrowserRouter([
     {
       path: "/",
       element: <Main />,
+    },
+    {
+      path: "/menu",
+      element: <Menu />,
     },
     // {
     //   path: "/authorization",
