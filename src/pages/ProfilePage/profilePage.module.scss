@@ -1,10 +1,13 @@
 .profile {
   display: flex;
+  min-height: 100vh;
+  font-family: 'Times New Roman', Times, serif;
+
   aside {
-    margin-left: 3%;
-    margin-right: 10px;
     width: 300px;
     white-space: nowrap;
+    background-color: #1f1f1f;
+    
     h2 {
       border-left: 5px solid var(--basic);
       font-style: italic;
@@ -18,6 +21,8 @@
     }
   }
   main {
+    width: 100%;
+    height: 100%;
     margin: 0px;
     min-height: calc(100vh - var(--header-size));
   }

@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  min-height: 100vh;
+}
+
 h1 {
   font-size: 22px;
   margin: 0;
