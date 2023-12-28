@@ -1,6 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./pages/main/Main";
-import Test from "./pages/test/Test";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import Profile from "./components/Profile/Profile";
+import Favorites from "./components/Favorites/Favorites";
+import BasketPage from "./pages/BasketPage/BasketPage";
+import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import Analytics from "./helpers/Analytics/Analytics";
@@ -12,27 +16,41 @@ function App() {
       element: <Main />,
     },
     {
-      path: "/test",
-      element: <Test />,
+      path: "/my_accaunt",
+      element: <ProfilePage />,
+      children: [
+        {
+          path: "personal_info",
+          element: <Profile />,
+        },
+        {
+          path: "favorites",
+          element: <Favorites />,
+        },
+        {
+          path: "basket",
+          element: <BasketPage />,
+        },
+      ],
     },
     {
-      path: '/testan',
-      element: <Analytics />
+      path: "/admin",
+      element: <AdminProfilePage />,
+      children: [
+        {
+          path: "personal_info",
+          element: <Profile />,
+        },
+        {
+          path: "favorites",
+          element: <Favorites />,
+        },
+        {
+          path: "basket",
+          element: <BasketPage />,
+        },
+      ],
     },
-    // {
-    //   path: "/authorization",
-    //   element: <Authorization />,
-    //   children: [
-    //     {
-    //       path: "signIn",
-    //       element: <SignIn />,
-    //     },
-    //     {
-    //       path: "signUp",
-    //       element: <SignUp />,
-    //     },
-    //   ],
-    // },
   ]);
 
   return (
