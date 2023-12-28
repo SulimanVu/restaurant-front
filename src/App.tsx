@@ -5,6 +5,8 @@ import Profile from "./components/Profile/Profile";
 import Favorites from "./components/Favorites/Favorites";
 import BasketPage from "./pages/BasketPage/BasketPage";
 import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 function App() {
   const routes = createBrowserRouter([
