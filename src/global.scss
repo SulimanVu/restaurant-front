@@ -4,8 +4,12 @@
 
 * {
   font-family: "Times New Roman", Times, serif;
+  box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+}
 h1 {
   font-size: 22px;
   margin: 0;
@@ -36,4 +40,9 @@ span {
 }
 button {
   border: none;
+}
+
+:root {
+  --color-orange: #e38138;
+  --color-black: #1e1e1e;
 }
