@@ -54,12 +54,12 @@
           padding: 6px 15px;
           font-size: 14px;
           border-radius: 7px;
-          background-color: #eeeded;
+          background-color: #fff;
           overflow: hidden;
           cursor: pointer;
           &:hover {
             transition: 0.4s;
-            background-color: rgb(251, 68, 9);
+            background-color: var(--color-orange);
             color: #fff;
           }
         }

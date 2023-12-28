@@ -1,10 +1,13 @@
+import Content from "@/components/Content/Content";
+import Header from "@/components/Header/Header";
 
 const Main = () => {
-    return (
-        <div>
-            <h1 className="text-9xl underline">MAIN page</h1>
-        </div>
-    );
+  return (
+    <div>
+      <Header />
+      <Content />   
+    </div>
+  );
 };
 
 export default Main;

@@ -1,72 +1,66 @@
 .productCard {
-    width: 180px;
-    height: 320px;
-    padding: 20px;
-    border-radius: 10px;
-    font-family: 'Times New Roman', Times, serif;
-    -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
-    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  width: 180px;
+  height: 320px;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
 
-    .img {
-        position: relative;
-        img {
-            width: 100%;
-        }
+  .img {
+    position: relative;
+    img {
+      width: 100%;
+    }
+  }
+
+  .favorite {
+    position: absolute;
+    right: 0px;
+    img {
+      border: 1px solid var(--color-orange);
+      border-radius: 50%;
+      width: 18px;
+      padding: 6px;
+    }
+  }
+
+  .title {
+    width: 100%;
+    text-align: left;
+  }
+
+  .rating {
+    margin: 10px 0;
+    text-align: left;
+    img {
+      width: 18px;
+    }
+  }
+
+  .description {
+    text-align: left;
+    font-size: 12px;
+  }
+
+  .footerCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+
+    .price {
+      font-weight: bold;
     }
 
-    .favorite{
-        position: absolute;
-        right: 0px;
-        img{
-            border: 1px solid #e38138;
-            border-radius: 50%;
-            width: 18px;
-            padding: 6px;
-
-        }
-        
+    .btn {
+      button {
+        border: 1px solid var(--color-black);
+        border-radius: 20px;
+        background: none;
+        font-size: 14px;
+      }
     }
-
-    .title {
-        width: 100%;
-        text-align: left;
-    }
-
-    .rating{
-        margin: 10px 0;
-        text-align: left;
-        img{
-            width: 18px;
-        }
-    }
-
-    .description{
-        text-align: left;
-        font-size: 12px;
-    }
-
-
-    .footerCard{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 10px;
-
-        .price{
-            font-weight: bold;
-        }
-    
-        .btn{
-            button{
-                border: 1px solid #1e1e1e;
-                border-radius: 20px;
-                background: none;
-                font-size: 14px;
-            }
-        }
-
-    }
-
-    
+  }
 }

@@ -14,14 +14,14 @@
             img {
                 padding: 8px;
                 border-radius: 50%;
-                border: 1px solid #1e1e1e;
+                border: 1px solid var(--color-black);
             }
         }
 
         .logo {
             font-size: 24px;
             span{
-                color: #e38138;
+                color: var(--color-orange);
                 font-size: 40px;
             }
         }
@@ -29,7 +29,7 @@
         .btn {
             button {
                 padding:  10px 20px;
-                border: 1px solid #1e1e1e;
+                border: 1px solid var(--color-black);
                 border-radius: 20px;
                 background: none;
                 font-size: 14px;
