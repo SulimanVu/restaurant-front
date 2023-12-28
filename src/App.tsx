@@ -50,7 +50,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={routes} />;
+  return (
+    <Provider store={store}>
+      <RouterProvider router={routes} />
+    </Provider>
+  );
 }
 
 export default App;

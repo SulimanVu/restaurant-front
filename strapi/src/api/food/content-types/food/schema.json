@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "restaurants",
+  "collectionName": "foods",
   "info": {
-    "singularName": "restaurant",
-    "pluralName": "restaurants",
-    "displayName": "Restaurants",
-    "description": ""
+    "singularName": "food",
+    "pluralName": "foods",
+    "displayName": "Food"
   },
   "options": {
     "draftAndPublish": true
@@ -15,10 +14,13 @@
     "name": {
       "type": "string"
     },
-    "rating": {
+    "price": {
       "type": "float"
     },
-    "tables": {
+    "description": {
+      "type": "string"
+    },
+    "popularity": {
       "type": "integer"
     }
   }
