@@ -2,6 +2,10 @@ import { FormEvent, useState } from "react";
 import styles from "./test.module.scss";
 import { loginThunk, logout, registerThunk } from "@/redux/features/authSlice";
 import { useAppDispatch, useAppSelector, useAuth } from "@/redux/hook";
+import RaitingBLock from "@/shared/RaitingBLock/RaitingBLock";
+import ProductCard from "@/shared/Card/ProductCard";
+import { Modal } from "@/shared/Modal/Modal";
+import CityModal from "@/components/CityModal/CityModal";
 
 const Test = () => {
   const [email, setEmail] = useState("");
@@ -9,10 +13,12 @@ const Test = () => {
   const [password, setPassword] = useState("");
   const dispatch = useAppDispatch();
   const isAuth = useAuth();
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const user = useAppSelector((state) => state.authSlice.user);
   const jwt = useAppSelector((state) => state.authSlice.jwt);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleSubmitLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(
@@ -76,6 +82,7 @@ const Test = () => {
       <p>{user.username}</p>
       <p>{jwt}</p>
       <button onClick={() => dispatch(logout())}>logout</button>
+      <CityModal />
     </div>
   );
 };
