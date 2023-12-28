@@ -7,6 +7,7 @@ import BasketPage from "./pages/BasketPage/BasketPage";
 import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import Analytics from "./helpers/Analytics/Analytics";
 
 function App() {
   const routes = createBrowserRouter([
