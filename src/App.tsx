@@ -3,6 +3,7 @@ import Main from "./pages/main/Main";
 import Test from "./pages/test/Test";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import Analytics from "./helpers/Analytics/Analytics";
 
 function App() {
   const routes = createBrowserRouter([
@@ -13,6 +14,10 @@ function App() {
     {
       path: "/test",
       element: <Test />,
+    },
+    {
+      path: '/testan',
+      element: <Analytics />
     },
     // {
     //   path: "/authorization",
