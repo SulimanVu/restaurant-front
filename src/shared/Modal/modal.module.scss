@@ -21,11 +21,10 @@
 .content {
     padding: 20px;
     border-radius: 12px;
-    /* background: var(--inverted-bg-color);
-    color: var(--inverted-primary-color); */
     transition: 300ms transform;
     transform: scale(0.7);
     max-width: 60%;
+    @apply text-stone-900 bg-gray-100
 }
 
 .opened {
