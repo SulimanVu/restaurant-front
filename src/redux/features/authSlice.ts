@@ -1,116 +1,117 @@
-import { BASE_URL, JWT_LOCALSTORAGE_KEY, USER_LOCALSTORAGE_KEY } from "@/utils";
+import {
+  BASE_URL,
+  JWT_LOCALSTORAGE_KEY,
+  USER_ID_LOCALSTORAGE_KEY,
+} from "@/utils";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { User } from "../models";
 
 interface IInitialState {
-  jwt: string;
-  user: User;
+  token: string;
+  userID: string;
+  role: string;
   isLoading: boolean;
+  error?: string;
 }
-const getUser = () => {
-  try {
-    const user = JSON.parse(localStorage.getItem(USER_LOCALSTORAGE_KEY) ?? "");
-    if (!user) {
-      return {
-        blocked: false,
-        confirmed: false,
-        createdAt: "",
-        email: "",
-        id: 1,
-        provider: "",
-        updatedAt: "",
-        username: "",
-      };
-    }
-    return user;
-  } catch (error) {
-    console.log("Error parse user");
-    return {
-      blocked: false,
-      confirmed: false,
-      createdAt: "",
-      email: "",
-      id: 1,
-      provider: "",
-      updatedAt: "",
-      username: "",
-    };
-  }
-};
+
+interface IRegisterPayload {
+  name: string;
+  phone: string;
+  city: string;
+  address: string;
+  mail: string;
+  password: string;
+}
+
+interface ILoginPayload {
+  mail: string;
+  password: string;
+}
 
 const initialState: IInitialState = {
-  jwt: localStorage.getItem(JWT_LOCALSTORAGE_KEY) ?? "",
-  user: getUser(),
+  token: localStorage.getItem(JWT_LOCALSTORAGE_KEY) ?? "",
+  userID: localStorage.getItem(USER_ID_LOCALSTORAGE_KEY) ?? "",
+  role: "",
   isLoading: false,
+  error: "",
 };
 
-export const registerThunk = createAsyncThunk<
-  IInitialState,
-  {
-    username: string;
-    password: string;
-    email: string;
-  }
->("register", async ({ username, password, email }, thunkAPI) => {
-  try {
-    const response = await axios.post<IInitialState>(
-      BASE_URL + "/auth/local/register",
-      {
-        username,
-        email,
+export const registerThunk = createAsyncThunk<IInitialState, IRegisterPayload>(
+  "register",
+  async ({ name, phone, password, mail, address, city }, thunkAPI) => {
+    try {
+      const response = await axios.post<{
+        _id: string;
+        token: string;
+        role: string;
+      }>(BASE_URL + "/signup", {
+        name,
+        phone,
         password,
+        mail,
+        address,
+        city,
+      });
+      if (!response.data) {
+        throw new Error();
       }
-    );
-    if (!response.data) {
-      throw new Error();
+      localStorage.setItem(
+        USER_ID_LOCALSTORAGE_KEY,
+        JSON.stringify(response.data._id)
+      );
+      localStorage.setItem(
+        JWT_LOCALSTORAGE_KEY,
+        JSON.stringify(response.data.token)
+      );
+      return {
+        token: response.data.token,
+        userID: response.data._id,
+        isLoading: false,
+        role: response.data.role,
+      };
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue("Error");
     }
-    localStorage.setItem(
-      USER_LOCALSTORAGE_KEY,
-      JSON.stringify(response.data.user)
-    );
-    localStorage.setItem(
-      JWT_LOCALSTORAGE_KEY,
-      JSON.stringify(response.data.jwt)
-    );
-
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    return thunkAPI.rejectWithValue("Error");
   }
-});
+);
 
-export const loginThunk = createAsyncThunk<
-  IInitialState,
-  {
-    identifier: string;
-    password: string;
-  }
->("login", async ({ identifier, password }, thunkAPI) => {
-  try {
-    const response = await axios.post<IInitialState>(BASE_URL + "/auth/local", {
-      identifier,
-      password,
-    });
-    if (!response.data) {
-      throw new Error();
+export const loginThunk = createAsyncThunk<IInitialState, ILoginPayload>(
+  "login",
+  async ({ mail, password }, thunkAPI) => {
+    try {
+      const response = await axios.post<{
+        id: string;
+        token: string;
+        role: string;
+      }>(BASE_URL + "/signin", {
+        mail,
+        password,
+      });
+      if (!response.data) {
+        throw new Error();
+      }
+      localStorage.setItem(
+        USER_ID_LOCALSTORAGE_KEY,
+        JSON.stringify(response.data.id)
+      );
+      localStorage.setItem(
+        JWT_LOCALSTORAGE_KEY,
+        JSON.stringify(response.data.token)
+      );
+
+      return {
+        token: response.data.token,
+        userID: response.data.id,
+        isLoading: false,
+        role: response.data.role,
+      };
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue("Error");
     }
-    localStorage.setItem(
-      USER_LOCALSTORAGE_KEY,
-      JSON.stringify(response.data.user)
-    );
-    localStorage.setItem(
-      JWT_LOCALSTORAGE_KEY,
-      JSON.stringify(response.data.jwt)
-    );
-
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    return thunkAPI.rejectWithValue("Error");
   }
-});
+);
 
 export const authSlice = createSlice({
   name: "register",
@@ -118,43 +119,44 @@ export const authSlice = createSlice({
   reducers: {
     logout: (state) => {
       localStorage.removeItem(JWT_LOCALSTORAGE_KEY);
-      localStorage.removeItem(USER_LOCALSTORAGE_KEY);
-      state.user = {
-        blocked: false,
-        confirmed: false,
-        createdAt: "",
-        email: "",
-        id: 1,
-        provider: "",
-        updatedAt: "",
-        username: "",
-      };
-      state.jwt = "";
+      localStorage.removeItem(USER_ID_LOCALSTORAGE_KEY);
+      state.userID = "";
+      state.token = "";
+      state.role = "";
+      state.isLoading = false;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(registerThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = action.payload.user;
-        state.jwt = action.payload.jwt;
+        state.userID = action.payload.userID;
+        state.token = action.payload.token;
+        state.role = action.payload.role;
+        state.error = undefined;
       })
       .addCase(registerThunk.pending, (state) => {
         state.isLoading = true;
+        state.error = undefined;
       })
-      .addCase(registerThunk.rejected, (state) => {
+      .addCase(registerThunk.rejected, (state, action) => {
         state.isLoading = false;
+        state.error = action.payload as string;
       })
       .addCase(loginThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = action.payload.user;
-        state.jwt = action.payload.jwt;
+        state.userID = action.payload.userID;
+        state.token = action.payload.token;
+        state.role = action.payload.role;
+        state.error = undefined;
       })
       .addCase(loginThunk.pending, (state) => {
         state.isLoading = true;
+        state.error = undefined;
       })
-      .addCase(loginThunk.rejected, (state) => {
+      .addCase(loginThunk.rejected, (state, action) => {
         state.isLoading = false;
+        state.error = action.payload as string;
       });
   },
 });

@@ -2,9 +2,6 @@ import { FormEvent, useState } from "react";
 import styles from "./test.module.scss";
 import { loginThunk, logout, registerThunk } from "@/redux/features/authSlice";
 import { useAppDispatch, useAppSelector, useAuth } from "@/redux/hook";
-import RaitingBLock from "@/shared/RaitingBLock/RaitingBLock";
-import ProductCard from "@/shared/Card/ProductCard";
-import { Modal } from "@/shared/Modal/Modal";
 import CityModal from "@/components/CityModal/CityModal";
 
 const Test = () => {
@@ -13,17 +10,16 @@ const Test = () => {
   const [password, setPassword] = useState("");
   const dispatch = useAppDispatch();
   const isAuth = useAuth();
-  const [isOpenModal, setIsOpenModal] = useState(false);
 
-  const user = useAppSelector((state) => state.authSlice.user);
-  const jwt = useAppSelector((state) => state.authSlice.jwt);
+  const userID = useAppSelector((state) => state.authSlice.userID);
+  const jwt = useAppSelector((state) => state.authSlice.token);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleSubmitLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(
       loginThunk({
-        identifier: email,
+        mail: email,
         password: password,
       })
     );
@@ -33,16 +29,19 @@ const Test = () => {
     e.preventDefault();
     dispatch(
       registerThunk({
-        username,
+        name: username,
         password,
-        email,
+        mail: email,
+        address: "",
+        city: "",
+        phone: "",
       })
     );
   };
 
   return (
     <div className={styles.test}>
-      {/* <form onSubmit={handleSubmitLogin}>
+      <form onSubmit={handleSubmitLogin}>
         <input
           value={email}
           placeholder="email"
@@ -55,10 +54,9 @@ const Test = () => {
         />
         <button type="submit">{isAuth ? "Logout" : "Login"}</button>
       </form>
-      <p>{user.email}</p>
-      <p>{user.username}</p>
+      <p>{userID}</p>
       <p>{jwt}</p>
-      <button onClick={() => dispatch(logout())}>logout</button> */}
+      <button onClick={() => dispatch(logout())}>logout</button>
 
       <form onSubmit={handleSubmitRegister}>
         <input
@@ -78,8 +76,7 @@ const Test = () => {
         />
         <button type="submit">{isAuth ? "Logout" : "Register"}</button>
       </form>
-      <p>{user.email}</p>
-      <p>{user.username}</p>
+      <p>{userID}</p>
       <p>{jwt}</p>
       <button onClick={() => dispatch(logout())}>logout</button>
       <CityModal />
