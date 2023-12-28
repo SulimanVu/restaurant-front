@@ -1,6 +1,6 @@
 import styles from './productCard.module.scss';
-import star from '../../assets/star.svg';
-import favorite from '../../assets/favorite.svg'
+import star from '@/assets/star.svg';
+import favorite from '@/assets/favorite.svg'
 import { FC } from 'react';
 import cn from 'classnames'
 
