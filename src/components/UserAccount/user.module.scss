@@ -1,0 +1,45 @@
+.user{
+    width: 60%;
+    margin: 0 auto;
+
+    .user_card{
+        background-color: rgb(233, 232, 232);
+        border-radius: 10px;
+        padding-bottom: 1px;
+        margin-bottom: 20px;
+
+        .user_header{
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .content{
+            margin: 4px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+
+            ul{
+                width: 25%;
+                li{
+                    margin-bottom: 20px;
+                }
+            }
+    
+            .profile{
+                display: flex;
+                justify-content: center;
+                width: 50%;
+                img{
+                    width: 30%
+                }
+            }
+        }
+
+        
+    }
+}

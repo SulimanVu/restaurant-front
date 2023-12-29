@@ -2,57 +2,87 @@ import './App.css'
 import Footer from './components/Footer/Footer'
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./pages/main/Main";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import Profile from "./components/Profile/Profile";
+import Favorites from "./components/Favorites/Favorites";
+// import ProductDetail from "./components/ProductDetail/ProductDetail";
+import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import Analytics from "./helpers/Analytics/Analytics";
+import TestAn from "./helpers/Analytics/Analytics";
+import { AdminMenu } from "./components/AdminMenu/AdminMenu";
+import { AddPlate } from "./components/AdminMenu/ui/AddPlate/AddPlate";
+import { AdminOrders } from "./components/AdminOrders/AdminOrders";
+import Test from "./pages/test/Test";
+import Basket from "@/pages/Basket/Basket";
 
 function App() {
-  // const routes = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: <Main />,
-  //   },
+  const routes = createBrowserRouter([
+    {
+      path: "/",
+      element: <Main />,
+    },
+    {
+      path: "/test",
+      element: <Test />,
+    },
+    {
+      path: "/my_accaunt",
+      element: <ProfilePage />,
+      children: [
+        {
+          path: "personal_info",
+          element: <Profile />,
+        },
+        {
+          path: "favorites",
+          element: <Favorites />,
+        },
+      ],
+    },
+    {
+      path: "/admin",
+      element: <AdminProfilePage />,
+      children: [
+        {
+          path: "statistics",
+          element: <TestAn />,
+        },
+        {
+          path: "menu",
+          element: <AdminMenu />,
+        },
+        {
+          path: "orders",
+          element: <AdminOrders />,
+        },
+
+        {
+          path: "addPlate",
+          element: <AddPlate />,
+        },
+        {
+          path: "favorites",
+          element: <Favorites />,
+        },
+      ],
+    },
+    {
+      path:'/basket',
+      element: <Basket />
+    }
     // {
-    //   path: "/authorization",
-    //   element: <Authorization />,
-    //   children: [
-    //     {
-    //       path: "signIn",
-    //       element: <SignIn />,
-    //     },
-    //     {
-    //       path: "signUp",
-    //       element: <SignUp />,
-    //     },
-    //   ],
-    // },
-  // ]);
+    //   path: '/productDetail/:id',
+    //   element: <ProductDetail />
+    // }
+  ]);
 
   return (
-    <>
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
-
-
-      <Footer/>
-    </>
-  )
-  // return <RouterProvider router={routes} />;
+    <Provider store={store}>
+      <RouterProvider router={routes} />
+    </Provider>
+  );
 }
 
 export default App;
