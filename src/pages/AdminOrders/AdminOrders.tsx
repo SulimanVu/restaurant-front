@@ -1,5 +1,5 @@
-import { Content } from "./ui/Content"
-import { Header } from "./ui/Header"
+import { Content } from "./ui/Content/Content"
+import { Header } from "./ui/Header/Header"
 
 
 export const AdminOrders = () => {

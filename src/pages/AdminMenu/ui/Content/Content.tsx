@@ -1,8 +1,7 @@
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
-import styles from './Content.module.scss'
-import ColumnGroupingTable from './Table'
 import { useEffect } from 'react';
 import { fetchManyFood } from '@/redux/features/foodSlice';
+import EnhancedTable  from '../Table/Table';
 
 export const Content = () => {
   const allFood = useAppSelector((state) => state.foodSlice.allFood);
@@ -17,6 +16,6 @@ export const Content = () => {
   }
 
   return (
-    <ColumnGroupingTable allFood={allFood} />
+    <EnhancedTable allFood={allFood} />
   )
 }
