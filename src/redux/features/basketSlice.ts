@@ -10,17 +10,19 @@ export interface IBasket {
 interface BasketState {
   _id: string;
   basket: IBasket[];
+  sum: number
 }
 
 const initialState = {
   _id: "",
   basket: [],
+  sum: 0
 };
 
 export const fetchBasket = createAsyncThunk<BasketState, { id: string }>(
   "fetch/basket",
   async ({ id }, { rejectWithValue }) => {
-    const res = await fetch(`http://localhost:3010/basket/${id}`);
+    const res = await fetch(`http://localhost:3100/basket/${id}`);
     if (!res.ok) {
       return rejectWithValue("server error");
     }
@@ -33,7 +35,7 @@ export const addToBasket = createAsyncThunk<
   BasketState,
   { id: string; productId: string; size: number }
 >("add/basket", async ({ id, productId, size }, { rejectWithValue }) => {
-  const res = await fetch(`http://localhost:3010/basket/add/${id}`, {
+  const res = await fetch(`http://localhost:3100/basket/add/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -51,7 +53,7 @@ export const deleteInBasket = createAsyncThunk<
   string,
   { _id: string; product: string; size: number }
 >("delete/InBasket", async ({ _id, product, size }, { rejectWithValue }) => {
-  const res = await fetch(`http://localhost:3010/basket/delete/${_id}`, {
+  const res = await fetch(`http://localhost:3100/basket/delete/${_id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -68,7 +70,11 @@ export const deleteInBasket = createAsyncThunk<
 const basketSlice = createSlice({
   name: "favorite",
   initialState,
-  reducers: {},
+  reducers: {
+    setBasketSum: (state, action) => { 
+      state.sum = action.payload
+    } 
+  },
   extraReducers: (builder) => {
     builder
       .addCase(
@@ -95,4 +101,5 @@ const basketSlice = createSlice({
   },
 });
 
+export const { setBasketSum} = basketSlice.actions
 export default basketSlice.reducer;

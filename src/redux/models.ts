@@ -1,20 +1,28 @@
 export type Role = {
-    id: number;
-    name: string;
-    description: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-  };
-  
+  id: number;
+  name: string;
+  description: string;
+  type: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export type User = {
-    id: number;
-    username: string;
-    email: string;
-    provider: string;
-    confirmed: boolean;
-    blocked: boolean;
-    createdAt: string;
-    updatedAt: string;
-    role?: Role;
-  };
+  _id: number;
+  name: string;
+  phone: number;
+  city: string;
+  address: string;
+  password?: string;
+  mail: string;
+  role?: string;
+  basket: IBasket[];
+};
+
+export interface IBasket {
+  _id: string;
+  name: string;
+  image: string;
+  info: string;
+  price: string;
+}

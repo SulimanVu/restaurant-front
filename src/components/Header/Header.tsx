@@ -5,6 +5,7 @@ import { Loader } from "@/shared/Loader/Loader";
 import { Modal } from "@/shared/Modal/Modal";
 import classNames from "classnames";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const navbar = [
   {
@@ -20,8 +21,8 @@ const navbar = [
     name: "Новости",
   },
   {
-    href: "",
-    name: "О нас",
+    href: "/basket",
+    name: "Корзина",
   },
 ];
 
@@ -208,6 +209,7 @@ const RegisterForm = ({
           type="password"
           id="password"
           placeholder="password"
+          autoComplete="on"
           className="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
           required
           value={form.password}
@@ -240,7 +242,7 @@ const RegisterForm = ({
         <button
           type="submit"
           className={classNames(
-            " text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-green-700",
+            " text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-green-700",
             {
               "opacity-70": isLoading,
             }
@@ -330,6 +332,7 @@ const LoginForm = ({
           required
           value={form.password}
           onChange={handlePassword}
+          autoComplete="on"
         />
       </div>
 
@@ -360,7 +363,7 @@ const LoginForm = ({
           disabled={isLoading}
           type="submit"
           className={classNames(
-            " text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-700",
+            " text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-700",
             {
               "opacity-70": isLoading,
             }
@@ -392,6 +395,8 @@ const Header = () => {
       setIsOpenModal(true);
     }
   };
+
+  const navigate = useNavigate()
   return (
     <header className="relative">
       <img src={logo} className="absolute left-8 top-6 w-20 h-10" alt="logo" />
@@ -401,6 +406,7 @@ const Header = () => {
             <li
               className="text-xl cursor-pointer text-stone-900 hover:text-red-900"
               key={item.name}
+              onClick={(e) => navigate(item.href)}
             >
               {item.name}
             </li>

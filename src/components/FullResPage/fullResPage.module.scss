@@ -1,0 +1,204 @@
+.fullPage{
+    width: 80%;
+    margin: 0 auto;
+
+    .main_content{
+        background-image:url('https://old.leclick.ru/i/files/restaurants/photo/871259.jpg?w=1004');
+        padding: 60px 80px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-between;
+
+
+        .title{
+            width: 60%;
+            color: white;
+
+            .restaurant{
+                font-size: 20px;
+            }
+
+            .name{
+                font-size: 35px;
+            }
+
+            .logo{
+                margin-top: 40px;
+                img{
+                    width: 150px;
+                }
+            }
+        }
+
+        .pop_up{
+            width: 30%;
+            padding: 20px;
+            background-color:white;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+            
+            
+            .phone{
+                font-size: 20px;
+                margin-bottom:  20px;
+                text-align: center;
+            }
+
+            .street{
+                display: flex;
+                align-items: center;
+                margin: 20px 0px;
+                img{
+                    width: 20px;
+                }
+            }
+
+            .bron{
+                padding: 15px;
+                border-radius: 10px;
+                background-color: #07c68e;
+                text-align: center;
+                color: white;
+                cursor: pointer;
+                transition: 0.4s;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            .order{
+                margin-top: 20px;
+                padding: 15px;
+                border-radius: 10px;
+                background-color: #0e2244;
+                text-align: center;
+                color: white;
+                cursor: pointer;
+                transition: 0.4s;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+
+    .description{
+        width: 75%;
+        margin: 0 auto;
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+
+        .information_block{
+            width: 68%;
+
+            .dop_infa{
+                border-radius: 10px;
+                padding: 0px 20px;
+                background-color: white;
+                margin-top: 50px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+                
+
+                .top_blocks{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 20px 0px;
+                    div{
+                        display: flex;
+                        align-items: flex-start;
+                        width: 50%;
+                        img{
+                            width: 20px;
+                            filter:invert(50%)
+                        }
+                    }
+                }
+
+                
+            }
+
+            .time_work{
+                margin-top: 50px;
+
+                .times{
+                    padding: 20px;
+                    background-color: white;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+
+                    table{
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .bron_block{
+            width: 30%;
+            .pop_up2{
+                padding: 20px;
+                background-color:white;
+                border-radius: 20px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+                
+                
+                .phone{
+                    font-size: 20px;
+                    margin-bottom:  20px;
+                    text-align: left;
+                }
+    
+                .street{
+                    display: flex;
+                    align-items: center;
+                    margin: 20px 0px;
+                    img{
+                        width: 20px;
+                    }
+                }
+    
+                .bron{
+                    padding: 15px;
+                    border-radius: 10px;
+                    background-color: #07c68e;
+                    text-align: center;
+                    color: white;
+                    cursor: pointer;
+                    transition: 0.4s;
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+    
+                .order{
+                    margin-top: 20px;
+                    padding: 15px;
+                    border-radius: 10px;
+                    background-color: #0e2244;
+                    text-align: center;
+                    color: white;
+                    cursor: pointer;
+                    transition: 0.4s;
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+
+                .taxi{
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    border: 1px solid #fedd89;
+                    padding: 6px;
+                    img{
+                        width: 40px;
+                    }
+                }
+            }
+        }
+    }
+
+}
