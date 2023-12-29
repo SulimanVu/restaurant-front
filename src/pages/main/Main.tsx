@@ -5,6 +5,7 @@ import ProductCard from "@/shared/Card/ProductCard";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { useEffect } from "react";
 import { fetchManyFood } from "@/redux/features/foodSlice";
+import CityModal from "@/components/CityModal/CityModal";
 import Footer from "@/components/Footer/Footer";
 
 const Main = () => {
@@ -16,16 +17,17 @@ const Main = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <Header />
+    <main>
+      <CityModal />
       <Content />
       <div className={styles.flex}>
         {food?.map((item) => (
           <ProductCard key={item._id} item={item} className={styles.card} />
         ))}
       </div>
+
       <Footer />
-    </div>
+    </main>
   );
 };
 

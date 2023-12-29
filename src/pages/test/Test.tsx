@@ -27,6 +27,7 @@ const Test = () => {
           <PaymentCardForm />
         </Elements>
       )}
+      <CityModal />
     </div>
   );
 };

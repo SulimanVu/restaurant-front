@@ -13,6 +13,7 @@ import { AdminMenu } from "./components/AdminMenu/AdminMenu";
 import { AddPlate } from "./components/AdminMenu/ui/AddPlate/AddPlate";
 import { AdminOrders } from "./components/AdminOrders/AdminOrders";
 import Test from "./pages/test/Test";
+import Layout from "./components/Layout/Layout";
 import Basket from "@/pages/Basket/Basket";
 
 function App() {
@@ -78,7 +79,9 @@ function App() {
 
   return (
     <Provider store={store}>
-      <RouterProvider router={routes} />
+      <Layout>
+        <RouterProvider router={routes} />
+      </Layout>
     </Provider>
   );
 }
