@@ -18,12 +18,25 @@ const CityModal = () => {
     dispatch(setCity(selectedCity));
     setIsModalVisible(false); // Close the modal after selecting the city
   };
-
+  const handleClose = () => {
+    if (!city) return;
+    setIsModalVisible(false);
+  };
   return (
-    <Modal isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
-      <div className="h-20 bg-slate-500 flex items-center justify-center flex-col gap-2 p-2">
-        <label>Пожалуйсте укажите ваш город</label>
-        <select onChange={(e) => handleCityChange(e.target.value)} >
+    <Modal isOpen={isModalVisible} onClose={handleClose}>
+      <div className="h-20 w-96 flex items-center justify-center flex-col gap-2 p-2">
+        <label
+          htmlFor="city"
+          className="block mb-2 text-sm font-medium text-gray-900"
+        >
+          Пожалуйсте укажите ваш город
+        </label>
+        <select
+          className="p-2 w-full"
+          id="city"
+          onChange={(e) => handleCityChange(e.target.value)}
+        >
+          <option defaultValue={"Москва"}>Выберите город</option>
           <option value="Москва">Москва</option>
           <option value="Санкт-Петербург">Санкт-Петербург</option>
         </select>
