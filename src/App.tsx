@@ -6,6 +6,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Profile from "./components/Profile/Profile";
 import Favorites from "./components/Favorites/Favorites";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
+import ProductDetail from "./components/ProductDetail/ProductDetail";
 // import ProductDetail from "./components/ProductDetail/ProductDetail";
 import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
 import Analytics from "./helpers/Analytics/Analytics";
