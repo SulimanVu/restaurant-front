@@ -9,9 +9,9 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import Analytics from "./helpers/Analytics/Analytics";
 import TestAn from "./helpers/Analytics/Analytics";
-import { AdminMenu } from "./components/AdminMenu/AdminMenu";
-import { AddPlate } from "./components/AdminMenu/ui/AddPlate/AddPlate";
-import { AdminOrders } from "./components/AdminOrders/AdminOrders";
+import { AdminMenu } from "./pages/AdminMenu/AdminMenu";
+import { AddPlate } from "./pages/AdminMenu/ui/AddPlate/AddPlate";
+import { AdminOrders } from "./pages/AdminOrders/AdminOrders";
 import Test from "./pages/test/Test";
 import Basket from "@/pages/Basket/Basket";
 
