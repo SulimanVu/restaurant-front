@@ -3,6 +3,7 @@ import { PaymentElement } from "@stripe/react-stripe-js";
 import { useElements, useStripe } from "@stripe/react-stripe-js";
 import classNames from "classnames";
 import { FormEvent, useState } from "react";
+import { toast } from "react-toastify";
 
 const PaymentCardForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +25,11 @@ const PaymentCardForm = () => {
 
     if (error.message) {
       setError(error.message);
+      toast.error("Оплата не прошла !");
+    } else {
+      toast.success("Оплата прошла успешно !");
     }
+
     setIsLoading(false);
   };
   return (

@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { useEffect } from "react";
 import { fetchManyFood } from "@/redux/features/foodSlice";
 import CityModal from "@/components/CityModal/CityModal";
+import Footer from "@/components/Footer/Footer";
 
 const Main = () => {
   const dispatch = useAppDispatch();
@@ -24,6 +25,8 @@ const Main = () => {
           <ProductCard key={item._id} item={item} className={styles.card} />
         ))}
       </div>
+
+      <Footer />
     </main>
   );
 };
