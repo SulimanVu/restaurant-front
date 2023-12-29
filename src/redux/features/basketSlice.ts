@@ -10,11 +10,13 @@ export interface IBasket {
 interface BasketState {
   _id: string;
   basket: IBasket[];
+  sum: number
 }
 
 const initialState = {
   _id: "",
   basket: [],
+  sum: 0
 };
 
 export const fetchBasket = createAsyncThunk<BasketState, { id: string }>(
@@ -68,7 +70,11 @@ export const deleteInBasket = createAsyncThunk<
 const basketSlice = createSlice({
   name: "favorite",
   initialState,
-  reducers: {},
+  reducers: {
+    setBasketSum: (state, action) => { 
+      state.sum = action.payload
+    } 
+  },
   extraReducers: (builder) => {
     builder
       .addCase(
@@ -95,4 +101,5 @@ const basketSlice = createSlice({
   },
 });
 
+export const { setBasketSum} = basketSlice.actions
 export default basketSlice.reducer;
