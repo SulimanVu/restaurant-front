@@ -9,6 +9,7 @@ import Favorites from "./components/Favorites/Favorites";
 import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
 import Analytics from "./helpers/Analytics/Analytics";
 import TestAn from "./helpers/Analytics/Analytics";
+import Restaraunts from "./components/Restaraunts/Restaraunts";
 import { AdminMenu } from "./pages/AdminMenu/AdminMenu";
 import { AddPlate } from "./pages/AdminMenu/ui/AddPlate/AddPlate";
 import { AdminOrders } from "./pages/AdminOrders/AdminOrders";
@@ -67,9 +68,19 @@ function App() {
       ],
     },
     {
+
+      path: '/restik',
+      element: <Restaraunts />
+    }
+    // {
+    //   path: '/productDetail/:id',
+    //   element: <ProductDetail />
+    // }
+
       path: '/productDetail/:id',
       element: <ProductDetail />
     }
+
   ]);
 
   return <RouterProvider router={routes} />;
