@@ -23,10 +23,7 @@ const CityModal = () => {
     <Modal isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
       <div className="h-20 bg-slate-500 flex items-center justify-center flex-col gap-2 p-2">
         <label>Пожалуйсте укажите ваш город</label>
-        <select onChange={(e) => handleCityChange(e.target.value)}>
-          <option selected disabled>
-            Choose a city
-          </option>
+        <select onChange={(e) => handleCityChange(e.target.value)} >
           <option value="Москва">Москва</option>
           <option value="Санкт-Петербург">Санкт-Петербург</option>
         </select>

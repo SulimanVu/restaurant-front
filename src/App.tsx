@@ -3,6 +3,7 @@ import Main from "./pages/main/Main";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Profile from "./components/Profile/Profile";
 import Favorites from "./components/Favorites/Favorites";
+// import ProductDetail from "./components/ProductDetail/ProductDetail";
 import BasketPage from "./pages/BasketPage/BasketPage";
 import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
 import { Provider } from "react-redux";
@@ -12,12 +13,17 @@ import TestAn from "./helpers/Analytics/Analytics";
 import { AdminMenu } from "./components/AdminMenu/AdminMenu";
 import { AddPlate } from "./components/AdminMenu/ui/AddPlate/AddPlate";
 import { AdminOrders } from "./components/AdminOrders/AdminOrders";
+import Test from "./pages/test/Test";
 
 function App() {
   const routes = createBrowserRouter([
     {
       path: "/",
       element: <Main />,
+    },
+    {
+      path: "/test",
+      element: <Test />,
     },
     {
       path: "/my_accaunt",
@@ -64,6 +70,10 @@ function App() {
         },
       ],
     },
+    // {
+    //   path: '/productDetail/:id',
+    //   element: <ProductDetail />
+    // }
   ]);
 
   return (

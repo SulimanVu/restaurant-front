@@ -1,6 +1,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export interface IFood {
+  _id: string;
   name: string;
   image: string;
   info: string;

@@ -17,7 +17,7 @@ export const store = configureStore({
     userSlice,
     authSlice,
     citySlice,
-    foodSlice,
+    foodSlice
   },
 });
 
