@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import Footer from './components/Footer/Footer'
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./pages/main/Main";

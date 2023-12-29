@@ -1,0 +1,57 @@
+.restaurantCard{
+    width: 17%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+
+    .img{
+        img{
+            border-radius: 10px;
+        }
+    }
+    .rest_infa{
+        padding: 10px;
+       
+        .name{
+            font-size: 20px;
+        }
+
+        .rating{
+            display: flex;
+        }
+
+        .street{
+            display: flex;
+            img{
+                width: 15px;
+            }
+        }
+        .street2{
+            display: flex;
+            img{
+                width: 20px;
+            }
+        }
+        .citchen{
+            display: flex;
+            img{
+                width: 15px;
+            }
+        }
+
+        button{
+            margin-top: 40px;
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #07c68e;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            transition: 0.4s;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+}
