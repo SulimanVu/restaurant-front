@@ -9,6 +9,9 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import Analytics from "./helpers/Analytics/Analytics";
 import TestAn from "./helpers/Analytics/Analytics";
+import { AdminMenu } from "./components/AdminMenu/AdminMenu";
+import { AddPlate } from "./components/AdminMenu/ui/AddPlate/AddPlate";
+import { AdminOrders } from "./components/AdminOrders/AdminOrders";
 import Test from "./pages/test/Test";
 import Basket from "@/pages/Basket/Basket";
 
@@ -43,6 +46,19 @@ function App() {
         {
           path: "statistics",
           element: <TestAn />,
+        },
+        {
+          path: "menu",
+          element: <AdminMenu />,
+        },
+        {
+          path: "orders",
+          element: <AdminOrders />,
+        },
+
+        {
+          path: "addPlate",
+          element: <AddPlate />,
         },
         {
           path: "favorites",
