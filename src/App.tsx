@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import Analytics from "./helpers/Analytics/Analytics";
 import TestAn from "./helpers/Analytics/Analytics";
+import Restaraunts from "./components/Restaraunts/Restaraunts";
 
 function App() {
   const routes = createBrowserRouter([
@@ -49,6 +50,10 @@ function App() {
         },
       ],
     },
+    {
+      path: '/restik',
+      element: <Restaraunts />
+    }
     // {
     //   path: '/productDetail/:id',
     //   element: <ProductDetail />

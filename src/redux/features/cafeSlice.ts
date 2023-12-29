@@ -42,6 +42,7 @@ const cafeSlice = createSlice({
             .addCase(fetchCafes.fulfilled, (state, action) => {
                 state.cafe = action.payload
             })
+
     },
 })
 

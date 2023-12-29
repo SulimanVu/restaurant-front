@@ -7,6 +7,7 @@ import userSlice from "@/redux/features/userSlice";
 import authSlice from "./features/authSlice";
 import citySlice from "./features/citySlice";
 import foodSlice from "./features/foodSlice";
+import cafeSlice from "./features/cafeSlice";
 
 export const store = configureStore({
   reducer: {
@@ -17,7 +18,8 @@ export const store = configureStore({
     userSlice,
     authSlice,
     citySlice,
-    foodSlice
+    foodSlice,
+    cafeSlice,
   },
 });
 
