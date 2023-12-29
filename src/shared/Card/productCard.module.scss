@@ -10,8 +10,9 @@
 
   .img {
     position: relative;
-    img {
-      width: 100%;
+    >img {
+      margin: auto;
+      height: 150px;
     }
   }
 

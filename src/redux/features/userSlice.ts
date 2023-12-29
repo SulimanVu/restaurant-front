@@ -9,6 +9,7 @@ export interface User {
   phone: string;
   password: string;
   basket: IBasket[];
+  role?: string;
 }
 
 interface UserState {
@@ -25,6 +26,7 @@ const initialState: UserState = {
     phone: "",
     password: "",
     basket: [],
+    role: "",
   },
 };
 
@@ -33,7 +35,7 @@ export const fetchUsers = createAsyncThunk<
   undefined,
   { rejectValue: string }
 >("users/fetch", async (_, { rejectWithValue }) => {
-  const res = await fetch(`http://localhost:3010/clients`);
+  const res = await fetch(`http://localhost:3100/clients`);
 
   if (!res.ok) {
     return rejectWithValue("server error");
@@ -45,7 +47,7 @@ export const fetchUsers = createAsyncThunk<
 export const getUser = createAsyncThunk<User, string, { rejectValue: string }>(
   "user/get",
   async (id, { rejectWithValue }) => {
-    const res = await fetch(`http://localhost:3010/clients/${id}`);
+    const res = await fetch(`http://localhost:3100/clients/${id}`);
 
     if (!res.ok) {
       return rejectWithValue("server error");
@@ -60,7 +62,7 @@ export const updateUserBasket = createAsyncThunk<
   User,
   { rejectValue: string }
 >("user/update", async (user, { rejectWithValue }) => {
-  const res = await fetch(`http://localhost:3010/clients/basket/${user._id}`, {
+  const res = await fetch(`http://localhost:3100/clients/basket/${user._id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

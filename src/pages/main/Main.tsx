@@ -10,7 +10,7 @@ import Footer from "@/components/Footer/Footer";
 
 const Main = () => {
   const dispatch = useAppDispatch();
-  const food = useAppSelector((state) => state.foodSlice.allFood);
+  const food = useAppSelector((state) => state.foodSlice.allFood)?.slice(0, 4);
 
   useEffect(() => {
     dispatch(fetchManyFood());
@@ -18,8 +18,10 @@ const Main = () => {
 
   return (
     <main>
+      <Header />
       <CityModal />
       <Content />
+      <h1>Популярные блюда:</h1>
       <div className={styles.flex}>
         {food?.map((item) => (
           <ProductCard key={item._id} item={item} className={styles.card} />

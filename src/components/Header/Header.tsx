@@ -1,5 +1,6 @@
 import logo from "@/assets/LogoNew.svg";
 import { loginThunk, logout, registerThunk } from "@/redux/features/authSlice";
+import { getUser } from "@/redux/features/userSlice";
 import { useAppDispatch, useAppSelector, useAuth } from "@/redux/hook";
 import { Loader } from "@/shared/Loader/Loader";
 import { Modal } from "@/shared/Modal/Modal";
@@ -8,7 +9,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 
 const navbar = [
   {
-    href: "",
+    href: "/restaurants",
     name: "Рестораны",
   },
   {
@@ -386,6 +387,15 @@ const Header = () => {
   const dispatch = useAppDispatch();
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
+  const userID = useAppSelector((state) => state.authSlice.userID);
+  const role = useAppSelector((state) => state.userSlice.user);
+
+  console.log(userID.slice(1,userID.length));
+  
+  useEffect(() => {
+    dispatch(getUser(userID.slice(1,userID.length-1)));
+
+  }, [dispatch]);
 
   const handleLogin = () => {
     if (isAuth) {
@@ -394,6 +404,7 @@ const Header = () => {
       setIsOpenModal(true);
     }
   };
+
   return (
     <header className="relative">
       <img src={logo} className="absolute left-8 top-6 w-20 h-10" alt="logo" />
@@ -407,6 +418,9 @@ const Header = () => {
               {item.name}
             </li>
           ))}
+          <li className="text-xl cursor-pointer text-stone-900 hover:text-red-900">
+            {"Профиль"}
+          </li>
         </ul>
       </nav>
       <button
@@ -461,4 +475,3 @@ const Header = () => {
 };
 
 export default Header;
-

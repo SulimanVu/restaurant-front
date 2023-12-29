@@ -19,7 +19,7 @@ const initialState = {
 export const fetchFavorites = createAsyncThunk<FavoriteState, { id: string }>(
   "fetch/favorites",
   async ({ id }, { rejectWithValue }) => {
-    const res = await fetch(`http://localhost:3010/favorite/${id}`);
+    const res = await fetch(`http://localhost:3100/favorite/${id}`);
     if (!res.ok) {
       return rejectWithValue("server error");
     }
@@ -32,7 +32,7 @@ export const addToFavorite = createAsyncThunk<
   FavoriteState,
   { id: string; productId: string; size: number }
 >("add/favorite", async ({ id, productId, size }, { rejectWithValue }) => {
-  const res = await fetch(`http://localhost:3010/favorite/add/${id}`, {
+  const res = await fetch(`http://localhost:3100/favorite/add/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export const deleteToFavorite = createAsyncThunk<
   string,
   { id: string; productId: string; size: number }
 >("delete/favorite", async ({ id, productId, size }, { rejectWithValue }) => {
-  const res = await fetch(`http://localhost:3010/favorite/delete/${id}`, {
+  const res = await fetch(`http://localhost:3100/favorite/delete/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

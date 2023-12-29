@@ -38,7 +38,7 @@ const initialState: ProductState = {
 export const fetchProducts = createAsyncThunk<Product[]>(
   "products/fetch",
   async (_, { rejectWithValue }) => {
-    const res = await fetch(`http://localhost:3010/product`);
+    const res = await fetch(`http://localhost:3100/product`);
 
     if (!res.ok) {
       return rejectWithValue("server error");
@@ -50,7 +50,7 @@ export const fetchProducts = createAsyncThunk<Product[]>(
 export const fetchOneProduct = createAsyncThunk<Product, string>(
   "one/products/fetch",
   async (id, { rejectWithValue }) => {
-    const res = await fetch(`http://localhost:3010/product/${id}`);
+    const res = await fetch(`http://localhost:3100/product/${id}`);
 
     if (!res.ok) {
       return rejectWithValue("server error");

@@ -1,5 +1,4 @@
-import './App.css'
-import Footer from './components/Footer/Footer'
+import "./App.scss";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./pages/main/Main";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
@@ -7,15 +6,12 @@ import Profile from "./components/Profile/Profile";
 import Favorites from "./components/Favorites/Favorites";
 // import ProductDetail from "./components/ProductDetail/ProductDetail";
 import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
 import Analytics from "./helpers/Analytics/Analytics";
 import TestAn from "./helpers/Analytics/Analytics";
 import { AdminMenu } from "./components/AdminMenu/AdminMenu";
 import { AddPlate } from "./components/AdminMenu/ui/AddPlate/AddPlate";
 import { AdminOrders } from "./components/AdminOrders/AdminOrders";
 import Test from "./pages/test/Test";
-import Layout from "./components/Layout/Layout";
 import Basket from "@/pages/Basket/Basket";
 
 function App() {
@@ -70,22 +66,16 @@ function App() {
       ],
     },
     {
-      path:'/basket',
-      element: <Basket />
-    }
+      path: "/basket",
+      element: <Basket />,
+    },
     // {
-    //   path: '/productDetail/:id',
-    //   element: <ProductDetail />
-    // }
+    //   path: "/productDetail/:id",
+    //   element: <ProductDetail />,
+    // },
   ]);
 
-  return (
-    <Provider store={store}>
-      <Layout>
-        <RouterProvider router={routes} />
-      </Layout>
-    </Provider>
-  );
+  return <RouterProvider router={routes} />;
 }
 
 export default App;
