@@ -36,7 +36,7 @@ function createData(
       },
       {
         date: '2020-01-02',
-        customerId: 'Anonymous',
+        customerId: 'Султан',
         amount: 1,
       },
     ],
@@ -72,15 +72,15 @@ function Row(props: { row: ReturnType<typeof createData> }) {
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
-                History
+                История
               </Typography>
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Customer</TableCell>
-                    <TableCell align="right">Amount</TableCell>
-                    <TableCell align="right">Total price ($)</TableCell>
+                    <TableCell>Время</TableCell>
+                    <TableCell>Покупателль</TableCell>
+                    <TableCell align="right">Количевство</TableCell>
+                    <TableCell align="right">Итого ($)</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -107,11 +107,11 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0, 3.99),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
-  createData('Eclair', 262, 16.0, 24, 6.0, 3.79),
-  createData('Cupcake', 305, 3.7, 67, 4.3, 2.5),
-  createData('Gingerbread', 356, 16.0, 49, 3.9, 1.5),
+  createData('Бургер', 159, 6.0, 24, 4.0, 3.99),
+  createData('Сэндвич', 237, 9.0, 37, 4.3, 4.99),
+  createData('Кинкер', 262, 16.0, 24, 6.0, 3.79),
+  createData('Жижиг-Галнаш', 305, 3.7, 67, 4.3, 2.5),
+  createData('Чай', 356, 16.0, 49, 3.9, 1.5),
 ];
 
 export default function CollapsibleTable() {
@@ -121,11 +121,11 @@ export default function CollapsibleTable() {
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell>Блюдо (100g serving)</TableCell>
+            <TableCell align="right">Калории</TableCell>
+            <TableCell align="right">Жир&nbsp;(g)</TableCell>
+            <TableCell align="right">Углеводы&nbsp;(g)</TableCell>
+            <TableCell align="right">Проетин&nbsp;(g)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

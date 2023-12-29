@@ -4,7 +4,7 @@ import Heart from "@/assets/HeartSVG";
 import SignOutSVG from "@/assets/SignOutSVG";
 import ProfileSVG from "@/assets/ProfileSVG";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Logo } from "./assets/Logo";
+import logo from "@/assets/LogoNew.svg";
 
 const AdminProfileNav: FC = () => {
   const location = useLocation();
@@ -25,7 +25,7 @@ const AdminProfileNav: FC = () => {
     <div className={styles.wrapper}>
       <div className={styles.content}>
         <div className={styles.logo}>
-          <Logo />
+        <img src={logo}  />
         </div>
         <ul className={styles.list}>
           <li
@@ -52,14 +52,14 @@ const AdminProfileNav: FC = () => {
             <ProfileSVG />
             <span className={styles.listItem}>Меню</span>
           </li>
-          <li
+          {/* <li
             className={path.includes("settings") ? styles.active : styles.none}
             onClick={navigateHandler}
             title="settings"
           >
             <ProfileSVG />
             <span className={styles.listItem}>Настройки</span>
-          </li>
+          </li> */}
           <li
             className={path.includes("statistics") ? styles.active : styles.none}
             onClick={navigateHandler}

@@ -10,6 +10,7 @@ import citySlice from "./features/citySlice";
 import cafeSlice from "./features/cafeSlice";
 
 import foodSlice from './features/foodSlice';
+import restaurantSlice from './features/restaurantSlice';
 
 
 export const store = configureStore({
@@ -23,6 +24,7 @@ export const store = configureStore({
     citySlice,
     foodSlice,
     cafeSlice,
+    restaurantSlice,
   },
 });
 

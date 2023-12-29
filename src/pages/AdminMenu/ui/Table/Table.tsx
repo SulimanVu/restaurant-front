@@ -102,31 +102,31 @@ const headCells: readonly HeadCell[] = [
     id: 'name',
     numeric: false,
     disablePadding: true,
-    label: 'Dessert (100g serving)',
+    label: 'Блюдо (кол на 100 (g)',
   },
   {
     id: 'calories',
     numeric: true,
     disablePadding: false,
-    label: 'Calories',
+    label: 'Калории (g)',
   },
   {
     id: 'fat',
     numeric: true,
     disablePadding: false,
-    label: 'Fat (g)',
+    label: 'Жир(g)',
   },
   {
     id: 'carbs',
     numeric: true,
     disablePadding: false,
-    label: 'Carbs (g)',
+    label: 'Углеводы (g)',
   },
   {
     id: 'protein',
     numeric: true,
     disablePadding: false,
-    label: 'Protein (g)',
+    label: 'Протеин(g)',
   },
 ];
 
@@ -221,7 +221,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           id="tableTitle"
           component="div"
         >
-          Список заказов
+          Меню
         </Typography>
       )}
       {numSelected > 0 ? (

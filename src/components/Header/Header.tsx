@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const navbar = [
   {
-    href: "/restaurants",
+    href: "/restik",
     name: "Рестораны",
   },
   {

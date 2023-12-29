@@ -1,7 +1,8 @@
 .flex {
   display: flex;
+  justify-content: space-between;
   gap: 20px;
-  width: 80%;
+  width: 100%;
   margin: auto;
   margin: 20px auto 50px;
   flex-wrap: wrap;
@@ -12,6 +13,8 @@
 }
 
 main {
+  width: 80%;
+  margin: 0 auto;
   > h1 {
     font-size: 32px;
     margin: 30px auto;

@@ -1,15 +1,22 @@
+.img {
+    object-fit: cover;
+    background-image: url('https://i1.wp.com/i.huffpost.com/gen/1505752/images/o-STARBUCKS-facebook.jpg');
+    object-fit: cover;
+    min-width: 1200px;
+    border-radius: 8px;
+    min-height: 600px;
+}
+
 .brain {
     width: 70%;
-    margin: 0 auto;
-    object-fit: cover;
-    background-image: url('https://old.leclick.ru/i/files/restaurants/photo/871259.jpg?w=1004');
-    object-fit: cover;
+    margin: 0px auto;
     padding: 60px 80px;
-    border-radius: 20px;
+
     color: white;
     text-align: center;
 
     .title1{
+        margin-top: 120px;
         font-size: 20px;
         margin-bottom: 10px;
     }

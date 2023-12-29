@@ -7,7 +7,7 @@ import AnalyticsRadar from './AnalyticsBlock/AnalyticsRadar';
 import styles from './Analytics.module.scss'
 
 const TestAn: React.FC = () => {
-    const [raw, setRaw] = useState(false)
+    const [raw, setRaw] = useState(true)
     const [circle, setCircle] = useState(false)
     const [radar, setRadar] = useState(false)
 

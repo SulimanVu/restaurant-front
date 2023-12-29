@@ -7,26 +7,34 @@ import { useEffect } from "react";
 import { fetchManyFood } from "@/redux/features/foodSlice";
 import CityModal from "@/components/CityModal/CityModal";
 import Footer from "@/components/Footer/Footer";
+import BrainPage from "@/components/BrainPage/BrainPage";
+import RestaurantCard from "@/components/RestaurantCard/RestaurantCard";
+import { fetchManyRestaurant } from "@/redux/features/restaurantSlice";
+import restaurantSlice from '../../redux/features/restaurantSlice';
 
 const Main = () => {
   const dispatch = useAppDispatch();
-  const food = useAppSelector((state) => state.foodSlice.allFood)?.slice(0, 4);
+  const restaurant = useAppSelector((state) => state.restaurantSlice.allRestaurants)?.slice(0, 4);
 
-  console.log(food);
+  console.log(restaurant);
   
   useEffect(() => {
-    dispatch(fetchManyFood());
+    dispatch(fetchManyRestaurant());
   }, [dispatch]);
 
   return (
     <main>
       <Header />
       <CityModal />
-      <Content />
+      <BrainPage />
+      {/* <Content /> */}
       <h1>Популярные блюда:</h1>
       <div className={styles.flex}>
-        {food?.map((item) => (
-          <ProductCard key={item._id} item={item} className={styles.card} />
+        {restaurant?.map((item) => (
+          <RestaurantCard  item={item} />
+        ))}
+         {restaurant?.map((item) => (
+          <RestaurantCard  item={item} />
         ))}
       </div>
       <Footer />

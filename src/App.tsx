@@ -15,6 +15,8 @@ import { AddPlate } from "./pages/AdminMenu/ui/AddPlate/AddPlate";
 import { AdminOrders } from "./pages/AdminOrders/AdminOrders";
 import Test from "./pages/test/Test";
 import Basket from "@/pages/Basket/Basket";
+import FullResPage from "./components/FullResPage/FullResPage";
+import { Wrapper } from "./components/FullResPage/wrapper";
 
 function App() {
   const routes = createBrowserRouter([
@@ -70,13 +72,13 @@ function App() {
     {
 
       path: '/restik',
-      element: <Restaraunts />
-    }
+      element: <Wrapper />
+    },
     // {
     //   path: '/productDetail/:id',
     //   element: <ProductDetail />
     // }
-
+    {
       path: '/productDetail/:id',
       element: <ProductDetail />
     }
