@@ -7,9 +7,10 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
+:root {
+  min-height: 100vh;
 }
+
 h1 {
   font-size: 22px;
   margin: 0;
@@ -45,4 +46,27 @@ button {
 :root {
   --color-orange: #e38138;
   --color-black: #1e1e1e;
+  --basic: #8a33fd;
+  --secondary: #f6f6f6;
+  --third: #3c4242;
+  --lines: #bebcbd;
+  --text-silver: #807d7e;
+  --header-size: 50px;
+}
+
+body {
+  margin: 0;
+}
+body::-webkit-scrollbar {
+  width: 3px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--basic); /* цвет бегунка */
+  border-radius: 20px; /* округлось бегунка */
+  border: 3px solid var(--basic); /* отступ вокруг бегунка */
+}
+a:active,
+a:hover,
+a {
+  text-decoration: none;
 }

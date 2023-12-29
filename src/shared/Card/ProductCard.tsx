@@ -1,37 +1,49 @@
-import styles from './productCard.module.scss';
-import star from '../../assets/star.svg';
-import favorite from '../../assets/favorite.svg'
-import { FC } from 'react';
-import cn from 'classnames'
+import styles from "./productCard.module.scss";
+import star from "@/assets/star.svg";
+import favorite from "@/assets/favorite.svg";
+import { FC } from "react";
+import cn from "classnames";
+import { IFood } from "@/redux/features/foodSlice";
+import { useNavigate } from "react-router-dom";
 
 interface ProductCardProps {
-    className?: string,
-    text: string
+  className?: string;
+  item: IFood;
 }
 
-const ProductCard: FC<ProductCardProps> = ({ className, text = 'Lorem ipsum dolor sitamet consectetur adipisicing elit. Perspiciatis deleniti quod voluptatum voluptatibus delectus sed commodi ullam facere et quos.' }) => {
-    return (
-        <div className={cn(styles.productCard, className)}>
-            <div className={styles.img}>
-                <div className={styles.favorite}><img src={favorite} alt="" /></div>
-                <img src="https://www.pngall.com/wp-content/uploads/8/Dish-PNG-High-Quality-Image.png" alt="" />
-            </div>
-            <div className={styles.title}>Чахохбили с курицей и картофелем</div>
-            <div className={styles.rating}>
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-            </div>
-            <div className={styles.description}> {text.length > 65 ? text.slice(0, 65) + '...' : text} </div>
-            <div className={styles.footerCard}>
-                <div className={styles.price}>₽499</div>
-                <div className={styles.btn}><button>Add to cart</button></div>
-            </div>
+const ProductCard: FC<ProductCardProps> = ({ className, item }) => {
+  const navigate = useNavigate();
+  const handleRoute = () => {
+    navigate(`/productDetail/${item._id}`);
+  };
 
+  return (
+    <div className={cn(styles.productCard, className)}>
+      <div className={styles.img}>
+        <div className={styles.favorite}>
+          <img src={favorite} alt="#" />
         </div>
-    )
-}
+        <img src={`http://localhost:3100/${item.image}`} alt="#" />
+      </div>
+      <div className={styles.title}>{item.name}</div>
+      <div className={styles.rating}>
+        <img src={star} alt="#" />
+        <img src={star} alt="#" />
+        <img src={star} alt="#" />
+        <img src={star} alt="#" />
+        <img src={star} alt="#" />
+      </div>
+      <div className={styles.description}>
+        {item.info?.length > 65 ? item.info.slice(0, 65) + "..." : item.info}
+      </div>
+      <div className={styles.footerCard}>
+        <div className={styles.price}>₽{item.price || "--"}</div>
+        <div className={styles.btn}>
+          <button onClick={handleRoute}>Добавить в корзину</button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default ProductCard
+export default ProductCard;
