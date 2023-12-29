@@ -1,5 +1,4 @@
-import './App.scss'
-import Footer from './components/Footer/Footer'
+import "./App.scss";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./pages/main/Main";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
@@ -8,15 +7,12 @@ import Favorites from "./components/Favorites/Favorites";
  import ProductDetail from "./components/ProductDetail/ProductDetail";
 // import ProductDetail from "./components/ProductDetail/ProductDetail";
 import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
 import Analytics from "./helpers/Analytics/Analytics";
 import TestAn from "./helpers/Analytics/Analytics";
 import { AdminMenu } from "./pages/AdminMenu/AdminMenu";
 import { AddPlate } from "./pages/AdminMenu/ui/AddPlate/AddPlate";
 import { AdminOrders } from "./pages/AdminOrders/AdminOrders";
 import Test from "./pages/test/Test";
-import Layout from "./components/Layout/Layout";
 import Basket from "@/pages/Basket/Basket";
 
 function App() {
@@ -76,13 +72,7 @@ function App() {
     }
   ]);
 
-  return (
-    <Provider store={store}>
-      <Layout>
-        <RouterProvider router={routes} />
-      </Layout>
-    </Provider>
-  );
+  return <RouterProvider router={routes} />;
 }
 
 export default App;

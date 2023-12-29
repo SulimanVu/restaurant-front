@@ -9,6 +9,7 @@ export interface User {
   phone: string;
   password: string;
   basket: IBasket[];
+  role?: string;
 }
 
 interface UserState {
@@ -25,27 +26,29 @@ const initialState: UserState = {
     phone: '',
     password: '',
     basket: [],
+    role: "",
   },
 };
 
-export const fetchUsers = createAsyncThunk<User[], undefined, { rejectValue: string }>(
-  'users/fetch',
-  async (_, { rejectWithValue }) => {
-    const res = await fetch(`http://localhost:3100/clients`);
+export const fetchUsers = createAsyncThunk<
+  User[],
+  undefined,
+  { rejectValue: string }
+>("users/fetch", async (_, { rejectWithValue }) => {
+  const res = await fetch(`http://localhost:3100/clients`);
 
-    if (!res.ok) {
-      return rejectWithValue('server error');
-    }
-
-    return res.json();
+  if (!res.ok) {
+    return rejectWithValue("server error");
   }
-);
+
+  return res.json();
+});
 
 export const getUser = createAsyncThunk<User, string, { rejectValue: string }>(
-  'user/get',
+  "user/get",
   async (id, { rejectWithValue }) => {
-    console.log(id)
-    const res = await fetch(`http://localhost:3100/clients/${id.slice(1, id.length -1)}`);
+    const res = await fetch(`http://localhost:3100/clients/${id}`);
+
 
     if (!res.ok) {
       return rejectWithValue('server error');

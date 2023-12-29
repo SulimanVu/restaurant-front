@@ -23,7 +23,7 @@ const ProductCard: FC<ProductCardProps> = ({ className, item }) => {
         <div className={styles.favorite}>
           <img src={favorite} alt="#" />
         </div>
-        <img src={`http://localhost:3100/${item.image}`} alt="#" />
+        <img src={`http://localhost:3100/${item.image[0]}`} alt="#" />
       </div>
       <div className={styles.title}>{item.name}</div>
       <div className={styles.rating}>
