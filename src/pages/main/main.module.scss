@@ -1,0 +1,12 @@
+.flex {
+  display: flex;
+  gap: 20px;
+  width: 80%;
+  margin: auto;
+  margin: 20px auto;
+  flex-wrap: wrap;
+  .card{
+    width: 220px;
+    padding: 10px;
+  }
+}
