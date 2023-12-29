@@ -1,20 +1,14 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Category } from "./categoriesSlice";
-import { GlobalCategories } from "./globalCategorySlice";
 
 export interface Product {
   _id: string;
   name: string;
-  photo: [string];
-  title: string;
-  materials: string;
-  articul: number;
+  image: [string];
+  info: string;
   price: number;
-  categories: Category[];
-  globalCategory: GlobalCategories;
-  comments: string[];
-  rating: number;
-  sizes: [{ size: number; quantity: number }];
+  category: Category;
+  cafeId:string;
 }
 
 interface ProductState {
@@ -38,7 +32,7 @@ const initialState: ProductState = {
 export const fetchProducts = createAsyncThunk<Product[]>(
   "products/fetch",
   async (_, { rejectWithValue }) => {
-    const res = await fetch(`http://localhost:3010/product`);
+    const res = await fetch(`http://localhost:3100/food`);
 
     if (!res.ok) {
       return rejectWithValue("server error");
@@ -48,9 +42,10 @@ export const fetchProducts = createAsyncThunk<Product[]>(
   }
 );
 export const fetchOneProduct = createAsyncThunk<Product, string>(
-  "one/products/fetch",
+  "one/foods/fetch",
   async (id, { rejectWithValue }) => {
-    const res = await fetch(`http://localhost:3010/product/${id}`);
+    
+    const res = await fetch(`http://localhost:3100/food/${id}`);
 
     if (!res.ok) {
       return rejectWithValue("server error");
@@ -64,31 +59,31 @@ const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    filterProduct(state, action: PayloadAction<string>) {
-      state.sortedProduct = state.products.filter((product) =>
-        product.categories.find((category) => category._id === action.payload)
-      );
-      state.currentCategory = action.payload;
-    },
-    priceFilter(state, action: PayloadAction<{ min: number; max: number }>) {
-      const sortWithCategory = state.products.filter((product) =>
-        product.categories.find(
-          (category) => category._id === state.currentCategory
-        )
-      );
+    // filterProduct(state, action: PayloadAction<string>) {
+    //   state.sortedProduct = state.products.filter((product) =>
+    //     product.categories.find((category) => category._id === action.payload)
+    //   );
+    //   state.currentCategory = action.payload;
+    // },
+    // priceFilter(state, action: PayloadAction<{ min: number; max: number }>) {
+    //   const sortWithCategory = state.products.filter((product) =>
+    //     product.categories.find(
+    //       (category) => category._id === state.currentCategory
+    //     )
+    //   );
 
-      sortWithCategory.length > 0
-        ? (state.sortedProduct = sortWithCategory.filter(
-            (product) =>
-              product.price > action.payload.min &&
-              product.price < action.payload.max
-          ))
-        : (state.sortedProduct = state.products.filter(
-            (product) =>
-              product.price > action.payload.min &&
-              product.price < action.payload.max
-          ));
-    },
+    //   sortWithCategory.length > 0
+    //     ? (state.sortedProduct = sortWithCategory.filter(
+    //         (product) =>
+    //           product.price > action.payload.min &&
+    //           product.price < action.payload.max
+    //       ))
+    //     : (state.sortedProduct = state.products.filter(
+    //         (product) =>
+    //           product.price > action.payload.min &&
+    //           product.price < action.payload.max
+    //       ));
+    // },
   },
   extraReducers: (builder) => {
     builder
@@ -124,5 +119,5 @@ const productSlice = createSlice({
   },
 });
 
-export const { filterProduct, priceFilter } = productSlice.actions;
+// export const { filterProduct, priceFilter } = productSlice.actions;
 export default productSlice.reducer;
