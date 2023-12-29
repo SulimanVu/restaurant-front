@@ -392,6 +392,9 @@ const Header = () => {
   const userID = useAppSelector((state) => state.authSlice.userID);
   const role = useAppSelector((state) => state.userSlice.user);
 
+    console.log(userID);
+    console.log(role);
+  
   useEffect(() => {
     dispatch(getUser(userID.slice(1, userID.length - 1)));
   }, [dispatch]);
@@ -417,9 +420,7 @@ const Header = () => {
               {item.name}
             </li>
           ))}
-          <li className="text-xl cursor-pointer text-stone-900 hover:text-red-900">
-            {"Профиль"}
-          </li>
+          
         </ul>
       </nav>
       <button

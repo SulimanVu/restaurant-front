@@ -7,19 +7,21 @@ import { useEffect } from "react";
 import { fetchManyFood } from "@/redux/features/foodSlice";
 import CityModal from "@/components/CityModal/CityModal";
 import Footer from "@/components/Footer/Footer";
+import BronModal from "@/components/BronModal/BronModal";
 
 const Main = () => {
   const dispatch = useAppDispatch();
   const food = useAppSelector((state) => state.foodSlice.allFood)?.slice(0, 4);
 
   console.log(food);
-  
+
   useEffect(() => {
     dispatch(fetchManyFood());
   }, [dispatch]);
 
   return (
     <main>
+      <BronModal />
       <Header />
       <CityModal />
       <Content />
