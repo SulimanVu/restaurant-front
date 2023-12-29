@@ -50,7 +50,7 @@ export const fetchManyRestaurant = createAsyncThunk<IRestaurant[]>(
 export const updateRestaurant = createAsyncThunk<
   IRestaurant,
   { id: string; body: Partial<IRestaurant> }
->("get/many/restaurant", async ({ id, body }, { rejectWithValue }) => {
+>("update/restaurant", async ({ id, body }, { rejectWithValue }) => {
   const res = await fetch(`http://localhost:3100/cafe/edit/${id}`, {
     method: "PATCH",
     headers: {
