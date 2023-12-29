@@ -6,18 +6,14 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Profile from "./components/Profile/Profile";
 import Favorites from "./components/Favorites/Favorites";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
-import ProductDetail from "./components/ProductDetail/ProductDetail";
 // import ProductDetail from "./components/ProductDetail/ProductDetail";
 import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
-import Analytics from "./helpers/Analytics/Analytics";
 import TestAn from "./helpers/Analytics/Analytics";
-import Restaraunts from "./components/Restaraunts/Restaraunts";
 import { AdminMenu } from "./pages/AdminMenu/AdminMenu";
 import { AddPlate } from "./pages/AdminMenu/ui/AddPlate/AddPlate";
 import { AdminOrders } from "./pages/AdminOrders/AdminOrders";
 import Test from "./pages/test/Test";
 import Basket from "@/pages/Basket/Basket";
-import FullResPage from "./components/FullResPage/FullResPage";
 import { Wrapper } from "./components/FullResPage/wrapper";
 
 function App() {
@@ -76,14 +72,13 @@ function App() {
       ],
     },
     {
-
       path: '/restik',
       element: <Wrapper />
     },
-    // {
-    //   path: '/productDetail/:id',
-    //   element: <ProductDetail />
-    // }
+    {
+      path: '/basket',
+      element: <Basket />
+    },
     {
       path: '/productDetail/:id',
       element: <ProductDetail />

@@ -32,11 +32,8 @@ const Main = () => {
       {/* <Content /> */}
       <h1>Популярные блюда:</h1>
       <div className={styles.flex}>
-        {restaurant?.map((item) => (
-          <RestaurantCard  item={item} />
-        ))}
-         {restaurant?.map((item) => (
-          <RestaurantCard  item={item} />
+        {[...restaurant,...restaurant].map((item, index) => (
+          <RestaurantCard key={index} item={item} />
         ))}
       </div>
       <Footer />

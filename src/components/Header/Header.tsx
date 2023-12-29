@@ -10,12 +10,12 @@ import { useNavigate } from "react-router-dom";
 
 const navbar = [
   {
-    href: "/restik",
-    name: "Рестораны",
+    href: "/",
+    name: "Главная",
   },
   {
-    href: "",
-    name: "Банкеты",
+    href: "/restik",
+    name: "Рестораны",
   },
   {
     href: "",

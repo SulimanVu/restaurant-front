@@ -8,7 +8,7 @@ const RestaurantCard = ({ item }: any) => {
   const navigate = useNavigate()
 
   const navigateHandler = () => {
-      navigate("basket")
+      navigate("restik")
   };
 
   console.log(item)
@@ -21,7 +21,7 @@ const RestaurantCard = ({ item }: any) => {
             <div className={styles.street}><img src="https://leclick.ru/img/icons/loc.svg" alt="" />&nbsp; {item.address}</div>
             <div className={styles.street2}><img src="https://leclick.ru/img/icons/metro.svg" alt="" /> &nbsp;{item.city}</div>
             <div className={styles.citchen}><img src="https://leclick.ru/img/icons/kitchen.svg" alt="" />&nbsp; Европейская, Американская, Аргентинская</div>
-            <button onClick={navigateHandler}>Забронировать</button>
+            <button onClick={navigateHandler}>На страницу</button>
         </div>
         
     </div>

@@ -33,7 +33,7 @@ const PaymentModal = () => {
           setIsOpen(true);
         }}
       >
-        Pay
+        Оплатить
       </button>
     </div>
   );

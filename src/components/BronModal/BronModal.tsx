@@ -2,9 +2,9 @@ import { Modal } from "@/shared/Modal/Modal";
 import styles from "./bron.module.scss";
 import Input from "@/shared/Input/Input";
 
-const BronModal = () => {
+const BronModal = ({isOpen, onClose}: any) => {
   return (
-    <Modal isOpen={true} onClose={() => false}>
+    <Modal isOpen={isOpen} onClose={onClose}>
       <div className={styles.bronWindow}>
         <h2>Кафе Пушкинъ</h2>
         <h6>Тверской б-р, д. 26а</h6>

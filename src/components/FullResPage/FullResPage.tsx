@@ -1,7 +1,29 @@
+import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import styles from './fullResPage.module.scss';
 import map from '@/assets/map.png'
+import { useEffect, useState } from 'react';
+import { fetchManyFood } from '@/redux/features/foodSlice';
+import Restaraunts from '../Restaraunts/Restaraunts';
+import ProductCard from '@/shared/Card/ProductCard';
+import BronModal from '../BronModal/BronModal';
+import { Box, CircularProgress } from '@mui/material';
 
 const FullResPage = () => {
+    const allFood = useAppSelector((state) => state.foodSlice.allFood);
+  const dispatch = useAppDispatch()
+const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    dispatch(fetchManyFood());
+  }, [dispatch]);  
+
+  if(!allFood) {
+    return (
+        <Box sx={{ display: 'flex', margin: '300px auto 300px 700px',  }}>
+          <CircularProgress />
+        </Box>
+      );
+  }
+
     return (
         <div className={styles.fullPage}>
             <div className={styles.main_content}>
@@ -16,7 +38,7 @@ const FullResPage = () => {
                     <hr />
                     <div className={styles.street}><img src='https://leclick.ru/img/icons/loc.svg' alt="" /> &nbsp; <div>ул. Большая Полянка, д. 56/1</div></div>
                     <div className={styles.street}><img src="https://leclick.ru/img/icons/metro.svg" alt="" /> &nbsp; <div>Добрынинская, Полянка, Серпуховская</div></div>
-                    <div className={styles.bron}>Забронировать</div>
+                    <div className={styles.bron} onClick={() => setIsOpen(true)}>Забронировать</div>
                     <div className={styles.order}>Заказать банкет</div>
                 </div>
             </div>
@@ -70,6 +92,10 @@ const FullResPage = () => {
                                 </ul>
                             </div>
                         </div>
+                    </div>
+                    <div className={styles.productsCards}>
+
+                    {allFood.map((item) => <ProductCard item={item} />)}
                     </div>
                     <div className={styles.time_work}>
                         <h1>Время работы</h1>
@@ -127,6 +153,7 @@ const FullResPage = () => {
                     </div>
                 </div>
             </div>
+            <BronModal isOpen={isOpen} onClose={() => setIsOpen(false)}/>
         </div>
     )
 }
