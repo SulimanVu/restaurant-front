@@ -20,8 +20,6 @@ const Test = () => {
     });
   }, []);
 
-  console.log(clientSecret, "clientSecret");
-
   return (
     <div className={styles.test}>
       {stripe && clientSecret && (
