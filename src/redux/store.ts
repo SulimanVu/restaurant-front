@@ -6,6 +6,7 @@ import productSlice from "@/redux/features/productSlice";
 import userSlice from "@/redux/features/userSlice";
 import authSlice from "./features/authSlice";
 import citySlice from "./features/citySlice";
+import foodSlice from "./features/foodSlice";
 
 export const store = configureStore({
   reducer: {
@@ -15,7 +16,8 @@ export const store = configureStore({
     productSlice,
     userSlice,
     authSlice,
-    citySlice
+    citySlice,
+    foodSlice
   },
 });
 
