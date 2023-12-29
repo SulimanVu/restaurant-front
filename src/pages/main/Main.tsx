@@ -12,6 +12,8 @@ const Main = () => {
   const dispatch = useAppDispatch();
   const food = useAppSelector((state) => state.foodSlice.allFood)?.slice(0, 4);
 
+  console.log(food);
+  
   useEffect(() => {
     dispatch(fetchManyFood());
   }, [dispatch]);
@@ -27,7 +29,6 @@ const Main = () => {
           <ProductCard key={item._id} item={item} className={styles.card} />
         ))}
       </div>
-
       <Footer />
     </main>
   );

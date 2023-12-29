@@ -1,0 +1,51 @@
+
+
+.wrapper {
+  width: 50%;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.button {
+  color: white;
+  background-color: black !important;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.counter {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.itogo {
+
+}
+
+.wrapperSum {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.oplataButton {
+  border-radius: 8px;
+  color: white;
+  background-color: #333333 !important;
+  padding: 10px 20px;
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

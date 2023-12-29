@@ -1,4 +1,4 @@
-import CollapsibleTable from "./table"
+import CollapsibleTable from "../Table/table"
 
 export const Content = () => {
   return (

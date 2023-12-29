@@ -1,5 +1,5 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IBasket } from "../models";
+import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { IBasket } from '../models';
 // import { IBasket } from "./basketSlice";
 
 export interface User {
@@ -20,11 +20,11 @@ interface UserState {
 const initialState: UserState = {
   users: [],
   user: {
-    _id: "",
-    name: "",
-    email: "",
-    phone: "",
-    password: "",
+    _id: '',
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
     basket: [],
     role: "",
   },
@@ -49,58 +49,49 @@ export const getUser = createAsyncThunk<User, string, { rejectValue: string }>(
   async (id, { rejectWithValue }) => {
     const res = await fetch(`http://localhost:3100/clients/${id}`);
 
+
     if (!res.ok) {
-      return rejectWithValue("server error");
+      return rejectWithValue('server error');
     }
 
     return res.json();
   }
 );
 
-export const updateUserBasket = createAsyncThunk<
-  User,
-  User,
-  { rejectValue: string }
->("user/update", async (user, { rejectWithValue }) => {
-  const res = await fetch(`http://localhost:3100/clients/basket/${user._id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(user),
-  });
+export const updateUserBasket = createAsyncThunk<User, User, { rejectValue: string }>(
+  'user/update',
+  async (user, { rejectWithValue }) => {
+    const res = await fetch(`http://localhost:3100/clients/basket/${user._id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    });
 
-  if (!res.ok) {
-    return rejectWithValue("server error");
+    if (!res.ok) {
+      return rejectWithValue('server error');
+    }
+
+    return res.json();
   }
-
-  return res.json();
-});
+);
 
 const userSlice = createSlice({
-  name: "users",
+  name: 'users',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(
-        fetchUsers.fulfilled,
-        (state: UserState, action: PayloadAction<User[]>) => {
-          state.users = action.payload;
-        }
-      )
-      .addCase(
-        getUser.fulfilled,
-        (state: UserState, action: PayloadAction<User>) => {
-          state.user = action.payload;
-        }
-      )
-      .addCase(
-        updateUserBasket.fulfilled,
-        (state: UserState, action: PayloadAction<User>) => {
-          state.user = action.payload;
-        }
-      );
+      .addCase(fetchUsers.fulfilled, (state: UserState, action: PayloadAction<User[]>) => {
+        state.users = action.payload;
+      })
+      .addCase(getUser.fulfilled, (state: UserState, action: PayloadAction<User>) => {
+        state.user = action.payload;
+      })
+      .addCase(updateUserBasket.fulfilled, (state: UserState, action: PayloadAction<User>) => {
+        state.user = action.payload;
+      });
   },
 });
 
