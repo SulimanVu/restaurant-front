@@ -1,10 +1,11 @@
 import "./App.scss";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./pages/main/Main";
+import Menu from "./components/Menu/Menu";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Profile from "./components/Profile/Profile";
 import Favorites from "./components/Favorites/Favorites";
- import ProductDetail from "./components/ProductDetail/ProductDetail";
+import ProductDetail from "./components/ProductDetail/ProductDetail";
 // import ProductDetail from "./components/ProductDetail/ProductDetail";
 import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
 import Analytics from "./helpers/Analytics/Analytics";
@@ -21,6 +22,10 @@ function App() {
     {
       path: "/",
       element: <Main />,
+    },
+    {
+      path: "/menu",
+      element: <Menu />,
     },
     {
       path: "/test",
@@ -71,11 +76,8 @@ function App() {
 
       path: '/restik',
       element: <Restaraunts />
-    }
-    // {
-    //   path: '/productDetail/:id',
-    //   element: <ProductDetail />
-    // }
+    },
+    {
 
       path: '/productDetail/:id',
       element: <ProductDetail />
