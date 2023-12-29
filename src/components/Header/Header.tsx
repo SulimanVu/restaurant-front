@@ -208,6 +208,7 @@ const RegisterForm = ({
           type="password"
           id="password"
           placeholder="password"
+          autoComplete="on"
           className="shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
           required
           value={form.password}
@@ -330,6 +331,7 @@ const LoginForm = ({
           required
           value={form.password}
           onChange={handlePassword}
+          autoComplete="on"
         />
       </div>
 

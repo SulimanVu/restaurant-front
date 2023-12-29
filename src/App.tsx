@@ -11,6 +11,7 @@ import { store } from "./redux/store";
 import Analytics from "./helpers/Analytics/Analytics";
 import TestAn from "./helpers/Analytics/Analytics";
 import Test from "./pages/test/Test";
+import Layout from "./components/Layout/Layout";
 
 function App() {
   const routes = createBrowserRouter([
@@ -62,7 +63,9 @@ function App() {
 
   return (
     <Provider store={store}>
-      <RouterProvider router={routes} />
+      <Layout>
+        <RouterProvider router={routes} />
+      </Layout>
     </Provider>
   );
 }
