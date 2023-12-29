@@ -240,7 +240,7 @@ const RegisterForm = ({
         <button
           type="submit"
           className={classNames(
-            " text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-green-700",
+            " text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-green-700",
             {
               "opacity-70": isLoading,
             }
@@ -360,7 +360,7 @@ const LoginForm = ({
           disabled={isLoading}
           type="submit"
           className={classNames(
-            " text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-700",
+            " text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-700",
             {
               "opacity-70": isLoading,
             }

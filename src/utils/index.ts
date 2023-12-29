@@ -2,35 +2,7 @@ export const BASE_URL = "http://localhost:3100";
 export const USER_ID_LOCALSTORAGE_KEY = "ls-user-id";
 export const JWT_LOCALSTORAGE_KEY = "ls-jwt";
 export const CITY_LOCALSTORAGE_KEY = "ls-city";
-
-function clearNumber(value: string = "") {
-  return value.replace(/[^0-9]/g, "");
-}
-
-export function formatCreditCardNumber(value: string) {
-  if (!value) {
-    return value;
-  }
-  const clearValue = clearNumber(value);
-  const nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
-    4,
-    8
-  )} ${clearValue.slice(8, 12)} ${clearValue.slice(12, 16)}`;
-  return nextValue.trim();
-}
-
-export function formatCVC(value: string) {
-  const clearValue = clearNumber(value);
-  const maxLength = 3;
-  return clearValue.slice(0, maxLength);
-}
-
-export function formatExpirationDate(value: string) {
-  const clearValue = clearNumber(value);
-
-  if (clearValue.length >= 3) {
-    return `${clearValue.slice(0, 2)}/${clearValue.slice(2, 4)}`;
-  }
-
-  return clearValue;
-}
+export const STRIPE_PUBLISH_KEY =
+  "pk_test_51OSTm3FFTxEkT9XG3uGRWVl5hg3BaZ4K06cRMgYEA19PZFgX0tUTrRMy5WPoopOtZLqeYw5M4qSKEcTF3YF07gY200Gk7hUPz9";
+export const STRIPE_SECRET_KEY =
+  "sk_test_51OSTm3FFTxEkT9XGKOda48tQcYHdFrtIQy6EE52I50EBxwhY60nQQc0E3ko64tOsqDUP7JHc41u4f2sGt6eh9iz500OxraP7jn";

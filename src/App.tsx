@@ -10,12 +10,17 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import Analytics from "./helpers/Analytics/Analytics";
 import TestAn from "./helpers/Analytics/Analytics";
+import Test from "./pages/test/Test";
 
 function App() {
   const routes = createBrowserRouter([
     {
       path: "/",
       element: <Main />,
+    },
+    {
+      path: "/test",
+      element: <Test />,
     },
     {
       path: "/my_accaunt",
