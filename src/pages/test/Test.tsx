@@ -8,26 +8,16 @@ import axios from "axios";
 
 import { loadStripe } from "@stripe/stripe-js";
 import PaymentCardForm from "@/components/PaymentCardForm/PaymentCardForm";
+import PaymentModal from "@/components/PaymentModal/PaymentModal";
 
 const stripe = loadStripe(STRIPE_PUBLISH_KEY);
 
 const Test = () => {
-  const [clientSecret, setClientSecret] = useState("");
-
-  useEffect(() => {
-    axios.post(BASE_URL + "/stripe").then(async (res: any) => {
-      setClientSecret(res?.data?.clientSecret);
-    });
-  }, []);
+  const [onOpen, setOnOpen] = useState(false);
 
   return (
     <div className={styles.test}>
-      {stripe && clientSecret && (
-        <Elements stripe={stripe} options={{ clientSecret }}>
-          <PaymentCardForm />
-        </Elements>
-      )}
-      <CityModal />
+      <PaymentModal />
     </div>
   );
 };
