@@ -1,16 +1,14 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { IBasket } from "../models";
+// import { IBasket } from "./basketSlice";
 
 export interface User {
   _id: string;
   name: string;
   email: string;
   phone: string;
-  avatar: string;
-  login: string;
   password: string;
-  admin: boolean;
-  favorite: string;
-  basket: string;
+  basket: IBasket[];
 }
 
 interface UserState {
@@ -25,12 +23,8 @@ const initialState: UserState = {
     name: "",
     email: "",
     phone: "",
-    avatar: "",
-    login: "",
     password: "",
-    admin: false,
-    favorite: "",
-    basket: "",
+    basket: [],
   },
 };
 
@@ -39,7 +33,7 @@ export const fetchUsers = createAsyncThunk<
   undefined,
   { rejectValue: string }
 >("users/fetch", async (_, { rejectWithValue }) => {
-  const res = await fetch(`http://localhost:3010/users`);
+  const res = await fetch(`http://localhost:3010/clients`);
 
   if (!res.ok) {
     return rejectWithValue("server error");
@@ -48,12 +42,31 @@ export const fetchUsers = createAsyncThunk<
   return res.json();
 });
 
-export const getUser = createAsyncThunk<
+export const getUser = createAsyncThunk<User, string, { rejectValue: string }>(
+  "user/get",
+  async (id, { rejectWithValue }) => {
+    const res = await fetch(`http://localhost:3010/clients/${id}`);
+
+    if (!res.ok) {
+      return rejectWithValue("server error");
+    }
+
+    return res.json();
+  }
+);
+
+export const updateUserBasket = createAsyncThunk<
   User,
-  { id: string },
+  User,
   { rejectValue: string }
->("user/get", async ({ id }, { rejectWithValue }) => {
-  const res = await fetch(`http://localhost:3010/users/${id}`);
+>("user/update", async (user, { rejectWithValue }) => {
+  const res = await fetch(`http://localhost:3010/clients/basket/${user._id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  });
 
   if (!res.ok) {
     return rejectWithValue("server error");
@@ -76,6 +89,12 @@ const userSlice = createSlice({
       )
       .addCase(
         getUser.fulfilled,
+        (state: UserState, action: PayloadAction<User>) => {
+          state.user = action.payload;
+        }
+      )
+      .addCase(
+        updateUserBasket.fulfilled,
         (state: UserState, action: PayloadAction<User>) => {
           state.user = action.payload;
         }

@@ -7,7 +7,6 @@ import ProfileNav from "@/components/ProfileNav/ProfileNav";
 const ProfilePage: FC = () => {
   return (
     <>
-      <Header />
       <section className={styles.profile}>
         <aside>
           <ProfileNav />

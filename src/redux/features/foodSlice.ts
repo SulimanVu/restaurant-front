@@ -63,7 +63,7 @@ export const updateFood = createAsyncThunk<
   return res.json();
 });
 
-const restaurantSlice = createSlice({
+const foodSlice = createSlice({
   name: "IFood",
   initialState,
   reducers: {},
@@ -78,6 +78,7 @@ const restaurantSlice = createSlice({
       .addCase(
         fetchManyFood.fulfilled,
         (state: IFoodState, action: PayloadAction<IFood[]>) => {
+          console.log(action.payload)
           state.allFood = action.payload;
         }
       )
@@ -90,4 +91,4 @@ const restaurantSlice = createSlice({
   },
 });
 
-export default restaurantSlice.reducer;
+export default foodSlice.reducer;
