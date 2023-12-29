@@ -7,8 +7,9 @@ import BasketPage from "./pages/BasketPage/BasketPage";
 import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import Slider from "./components/Slider/Slider";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
+import Analytics from "./helpers/Analytics/Analytics";
+import TestAn from "./helpers/Analytics/Analytics";
 
 function App() {
   const routes = createBrowserRouter([
@@ -39,16 +40,12 @@ function App() {
       element: <AdminProfilePage />,
       children: [
         {
-          path: "personal_info",
-          element: <Profile />,
+          path: "statistics",
+          element: <TestAn />,
         },
         {
           path: "favorites",
           element: <Favorites />,
-        },
-        {
-          path: "basket",
-          element: <BasketPage />,
         },
       ],
     },
