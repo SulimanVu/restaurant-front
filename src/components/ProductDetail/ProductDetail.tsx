@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import styles from "./productDetail.module.scss";
 import Header from "../Header/Header";
-import { useAppDispatch, useAppSelector } from "../../redux/hook";
-import { fetchOneProduct } from "../../redux/features/productSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { fetchOneProduct, fetchProducts } from "@/redux/features/productSlice";
 import { useParams } from "react-router-dom";
-import size_arrow from "../../assets/icons/size_arrow.png"
+import size_arrow from "@/assets/size_arrow.png"
 import Slider from "../Slider/Slider";
 
 
@@ -16,12 +16,14 @@ const ProductDetail: React.FC = () => {
         (state) => state.productSlice.oneProduct
     )
 
+    
     useEffect(() => {
         id && dispatch(fetchOneProduct(id))
     }, [dispatch, id])
 
 
-    const user = useAppSelector((state) => state.userSlice.user.basket);
+
+   /// const user = useAppSelector((state) => state.userSlice.user.basket);
 
  
 

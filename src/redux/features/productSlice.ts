@@ -44,6 +44,7 @@ export const fetchProducts = createAsyncThunk<Product[]>(
 export const fetchOneProduct = createAsyncThunk<Product, string>(
   "one/foods/fetch",
   async (id, { rejectWithValue }) => {
+    
     const res = await fetch(`http://localhost:3100/food/${id}`);
 
     if (!res.ok) {
