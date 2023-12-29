@@ -1,3 +1,5 @@
+import './App.css'
+import Footer from './components/Footer/Footer'
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./pages/main/Main";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
@@ -13,6 +15,7 @@ import { AdminMenu } from "./pages/AdminMenu/AdminMenu";
 import { AddPlate } from "./pages/AdminMenu/ui/AddPlate/AddPlate";
 import { AdminOrders } from "./pages/AdminOrders/AdminOrders";
 import Test from "./pages/test/Test";
+import Layout from "./components/Layout/Layout";
 import Basket from "@/pages/Basket/Basket";
 
 function App() {
@@ -78,7 +81,9 @@ function App() {
 
   return (
     <Provider store={store}>
-      <RouterProvider router={routes} />
+      <Layout>
+        <RouterProvider router={routes} />
+      </Layout>
     </Provider>
   );
 }
