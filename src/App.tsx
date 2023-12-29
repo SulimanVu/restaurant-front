@@ -4,13 +4,13 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Profile from "./components/Profile/Profile";
 import Favorites from "./components/Favorites/Favorites";
 // import ProductDetail from "./components/ProductDetail/ProductDetail";
-import BasketPage from "./pages/BasketPage/BasketPage";
 import AdminProfilePage from "./pages/ProfilePage/AdminProfilePage";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import Analytics from "./helpers/Analytics/Analytics";
 import TestAn from "./helpers/Analytics/Analytics";
 import Test from "./pages/test/Test";
+import Basket from "@/pages/Basket/Basket";
 
 function App() {
   const routes = createBrowserRouter([
@@ -34,10 +34,6 @@ function App() {
           path: "favorites",
           element: <Favorites />,
         },
-        {
-          path: "basket",
-          element: <BasketPage />,
-        },
       ],
     },
     {
@@ -54,6 +50,10 @@ function App() {
         },
       ],
     },
+    {
+      path:'/basket',
+      element: <Basket />
+    }
     // {
     //   path: '/productDetail/:id',
     //   element: <ProductDetail />
