@@ -1,25 +1,25 @@
-// import { useEffect } from "react";
-// import { IBasket, fetchBasket } from "@/redux/features/basketSlice";
+import { useEffect } from "react";
+import { IBasket, fetchBasket } from "@/redux/features/basketSlice";
 import styles from "./basketPage.module.scss";
-// import Basket from "@/components/Basket/BasketCard";
+import Basket from "@/components/Basket/BasketCard";
 import CreditCard from "@/components/CreaditCard/CreditCard";
-// import BasketEmpty from "@/components/BasketEmpty/BasketEmpty";
-// import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import BasketEmpty from "@/components/BasketEmpty/BasketEmpty";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 
 const BasketPage = () => {
-  // const dispatch = useAppDispatch();
-  // const basket = useAppSelector(
-  //   (state) => state.basketSlice.basket
-  // ) as IBasket[];
-  // const user = useAppSelector((state) => state.userSlice.user);
+  const dispatch = useAppDispatch();
+  const basket = useAppSelector(
+    (state) => state.basketSlice.basket
+  ) as IBasket[];
+  const user = useAppSelector((state) => state.userSlice.user);
 
-  // useEffect(() => {
-  // user && dispatch(fetchBasket({ id: user.basket }));
-  // }, [user, dispatch]);
+  useEffect(() => {
+    user && dispatch(fetchBasket({ id: user.basket }));
+  }, [user, dispatch]);
 
-  // if (!basket.length) {
-  //   return <BasketEmpty />;
-  // }
+  if (!basket.length) {
+    return <BasketEmpty />;
+  }
 
   return (
     <div className={styles.basketPage}>

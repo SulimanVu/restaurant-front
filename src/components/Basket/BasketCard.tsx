@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
-import { useAppDispatch, useAppSelector } from "@app/hook";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import styles from "./basketCard.module.scss";
-import { Product } from "@features/productSlice";
-import { deleteInBasket } from "@features/basketSlice";
+import { Product } from "@/redux/features/productSlice";
+import { deleteInBasket } from "@/redux/features/basketSlice";
 import DecrementSVG from "@/assets/DecrementSVG";
 import DeleteSVG from "@/assets/DeleteSVG";
 import IncrementSVG from "@/assets/IncrementSVG";
