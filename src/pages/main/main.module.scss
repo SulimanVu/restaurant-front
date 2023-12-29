@@ -1,0 +1,19 @@
+.flex {
+  display: flex;
+  gap: 20px;
+  width: 80%;
+  margin: auto;
+  margin: 20px auto 50px;
+  flex-wrap: wrap;
+  .card {
+    width: 220px;
+    padding: 10px;
+  }
+}
+
+main {
+  > h1 {
+    font-size: 32px;
+    margin: 30px auto;
+  }
+}

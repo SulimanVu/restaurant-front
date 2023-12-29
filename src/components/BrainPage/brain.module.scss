@@ -1,0 +1,56 @@
+.brain {
+    width: 70%;
+    margin: 0 auto;
+    object-fit: cover;
+    background-image: url('https://old.leclick.ru/i/files/restaurants/photo/871259.jpg?w=1004');
+    object-fit: cover;
+    padding: 60px 80px;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+
+    .title1{
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    hr{
+        margin: 0 auto;
+        width: 15%;
+    }
+
+    .title2{
+        font-size: 40px;
+    }
+
+    .title3{
+        font-size: 20px;
+        hr{
+            list-style: decimal;
+        }
+    }
+
+    .inp{
+        margin-top: 60px;
+        input{
+            padding: 15px;
+            border-radius: 10px;
+            width: 60%;
+        }
+    
+        button{
+            width: 30%;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #07c68e;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            transition: 0.4s;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
