@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import styles from './styles.module.scss'
-import arrow_bottom from "../../assets/icons/arrow_bottom.png"
-import arrow_top from "../../assets/icons/aroow_top.png"
+import arrow_bottom from "../../assets/arrow_bottom.png"
+import arrow_top from "../../assets/aroow_top.png"
 import { useParams } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../app/hook';
-import { Product, fetchOneProduct } from '../../features/productSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hook';
+import { Product, fetchOneProduct } from '@/redux/features/productSlice';
 
 
 
@@ -29,11 +29,11 @@ const Slider = () => {
     };
 
     const nextSlide = (): void => {
-        setCurrentSlide((currentSlide + 1) %  product?.photo.length);
+        setCurrentSlide((currentSlide + 1) %  product?.image.length);
     };
 
     const prevSlide = (): void => {
-        setCurrentSlide((currentSlide - 1 + product.photo.length) % product.photo.length);
+        setCurrentSlide((currentSlide - 1 + product?.image.length) % product?.image.length);
     };
 
     const handleScroll = (index: React.MouseEvent<HTMLDivElement>): void => {
@@ -44,7 +44,7 @@ const Slider = () => {
                  <div className={styles.product_detail_img}>
                     <div className={styles.slider_controls_container}>
 
-                        {product?.photo.map((slide, index) => (
+                        {product?.image.map((slide, index) => (
                             <div
                                 key={index}
                                 className={`${styles.slide} ${index === currentSlide ? styles.active : ""
@@ -52,7 +52,7 @@ const Slider = () => {
                                 onClick={() => handleScroll(index)}
                             >
                                 <img className={`${styles.slide} ${index === currentSlide ? styles.active_slide : ""
-                                    }`} src={`http://localhost:3010/${slide}`} alt={`Slide ${index + 1}`} />
+                                    }`} src={`http://localhost:3100/${slide}`} alt={`Slide ${index + 1}`} />
                             </div>
                         ))}
 
@@ -67,7 +67,7 @@ const Slider = () => {
                     </div>
 
                     <div className={styles.active_slide_container}>
-                        <img src={`http://localhost:3010/${product?.photo[currentSlide]}`} alt="Active Slide" />
+                        <img src={`http://localhost:3100/${product?.image[currentSlide]}`} alt="Active Slide" />
                     </div>
                 </div> 
   )
