@@ -1,3 +1,5 @@
+import './App.css'
+import Footer from './components/Footer/Footer'
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./pages/main/Main";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
