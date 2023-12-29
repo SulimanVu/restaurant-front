@@ -46,7 +46,7 @@ export const fetchManyFood = createAsyncThunk<IFood[]>(
 export const updateFood = createAsyncThunk<
   IFood,
   { id: string; body: Partial<IFood> }
->("get/many/food", async ({ id, body }, { rejectWithValue }) => {
+>("update/food", async ({ id, body }, { rejectWithValue }) => {
   const res = await fetch(`http://localhost:3100/food/edit/${id}`, {
     method: "PATCH",
     headers: {
@@ -62,7 +62,7 @@ export const updateFood = createAsyncThunk<
   return res.json();
 });
 
-const restaurantSlice = createSlice({
+const foodSlice = createSlice({
   name: "IFood",
   initialState,
   reducers: {},
@@ -77,6 +77,7 @@ const restaurantSlice = createSlice({
       .addCase(
         fetchManyFood.fulfilled,
         (state: IFoodState, action: PayloadAction<IFood[]>) => {
+          console.log(action.payload)
           state.allFood = action.payload;
         }
       )
@@ -89,4 +90,4 @@ const restaurantSlice = createSlice({
   },
 });
 
-export default restaurantSlice.reducer;
+export default foodSlice.reducer;
